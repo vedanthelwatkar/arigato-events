@@ -6,7 +6,7 @@ import { Button } from "../components/Button"
 
 const ErrorPage = () => {
   return (
-    <div className="min-h-[80dvh] flex items-center justify-center">
+    <div className="min-h-[80vh] flex items-center justify-center">
       <div className="w-full px-6 py-16 flex justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

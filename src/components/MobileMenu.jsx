@@ -2,7 +2,7 @@
 
 import { Link, useLocation } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
-import { Phone, Mail, Instagram, Facebook } from "react-feather"
+import { Phone, Mail, Instagram } from "react-feather"
 import { cn } from "../lib/utils"
 
 const MobileMenu = ({ isOpen, setIsOpen }) => {
@@ -35,14 +35,15 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
+    { name: "Memberships", path: "/memberships" },
     { name: "Contact", path: "/contact" },
   ]
 
   const socialLinks = [
-    { icon: <Phone size={18} />, label: "+1 (800) LUXURY", href: "tel:+18005898797" },
+    { icon: <Phone size={18} />, label: "+91 92847 49367", href: "tel:+919284749367" },
+    { icon: <Phone size={18} />, label: "+91 93566 66633", href: "tel:+919356666633" },
     { icon: <Mail size={18} />, label: "hello@arigato.com", href: "mailto:hello@arigato.com" },
-    { icon: <Instagram size={18} />, label: "@arigatoconcierge", href: "#" },
-    { icon: <Facebook size={18} />, label: "Arigato Luxury", href: "#" },
+    { icon: <Instagram size={18} />, label: "@arigatoevents", href: "https://www.instagram.com/arigatoevents/" },
   ]
 
   return (

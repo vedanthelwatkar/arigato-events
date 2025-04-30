@@ -25,6 +25,8 @@ const ServicesPage = () => {
         "Comprehensive guest list management and RSVP tracking for your exclusive events.",
       icon: <Users size={24} />,
       category: "Event Planning",
+      link: "/services/rsvp",
+      image: "/service-rsvp.jpg",
     },
     {
       title: "Event Concierge",
@@ -32,48 +34,35 @@ const ServicesPage = () => {
         "End-to-end event planning and management services for private and corporate occasions.",
       icon: <Calendar size={24} />,
       category: "Event Planning",
+      link: "/services/event-concierge",
+      image: "/service-event.jpg",
     },
     {
-      title: "Guest Logistics",
+      title: "Attache - Shadows & Runners",
+      description:
+        "Dedicated personal assistants to ensure your event runs smoothly.",
+      icon: <Users size={24} />,
+      category: "Event Planning",
+      link: "/services/attache",
+      image: "/service-attache.jpg",
+    },
+    {
+      title: "Guest Travel & Logistics",
       description:
         "Seamless transportation, accommodation, and itinerary planning for your guests.",
       icon: <Briefcase size={24} />,
       category: "Event Planning",
+      link: "/services/guest-logistics",
+      image: "/service-logistics.jpg",
     },
     {
-      title: "Destination Venue Curation",
+      title: "Wedding Private Jets & Choppers",
       description:
-        "Access to exclusive venues worldwide, perfectly matched to your event requirements.",
-      icon: <MapPin size={24} />,
-      category: "Venues & Locations",
-    },
-    {
-      title: "Hampers & Gifting",
-      description:
-        "Bespoke luxury gift hampers and personalized presents for special occasions.",
-      icon: <Gift size={24} />,
-      category: "Experiences",
-    },
-    {
-      title: "Wedding Content Creation",
-      description:
-        "Premium photography and videography services to capture your most precious moments.",
-      icon: <Camera size={24} />,
-      category: "Media & Entertainment",
-    },
-    {
-      title: "Entertainment & Artist Management",
-      description:
-        "Booking and management of world-class performers and entertainment for your events.",
-      icon: <Music size={24} />,
-      category: "Media & Entertainment",
-    },
-    {
-      title: "F&B & Bar Management",
-      description:
-        "Curated dining experiences and premium bar services for your events.",
-      icon: <Coffee size={24} />,
-      category: "Hospitality",
+        "Luxury private aviation services for seamless travel experiences.",
+      icon: <Globe size={24} />,
+      category: "Transportation",
+      link: "/services/private-jets",
+      image: "/service-jets.jpg",
     },
     {
       title: "Backstage & Showrun",
@@ -81,6 +70,53 @@ const ServicesPage = () => {
         "Professional event production and backstage management services.",
       icon: <Briefcase size={24} />,
       category: "Event Planning",
+      link: "/services/backstage",
+      image: "/service-backstage.jpg",
+    },
+    {
+      title: "Couple Entry Curation",
+      description:
+        "Create memorable and stunning entrances for the wedding couple.",
+      icon: <Music size={24} />,
+      category: "Experiences",
+      link: "/services/couple-entry",
+      image: "/service-entry.jpg",
+    },
+    {
+      title: "Hampers & Gifting",
+      description:
+        "Bespoke luxury gift hampers and personalized presents for special occasions.",
+      icon: <Gift size={24} />,
+      category: "Experiences",
+      link: "/services/hampers-gifting",
+      image: "/service-gifting.jpg",
+    },
+    {
+      title: "Wedding Content Creation",
+      description:
+        "Premium photography and videography services to capture your most precious moments.",
+      icon: <Camera size={24} />,
+      category: "Media & Entertainment",
+      link: "/services/content-creation",
+      image: "/service-content.jpg",
+    },
+    {
+      title: "Entertainment & Artist Management",
+      description:
+        "Booking and management of world-class performers and entertainment for your events.",
+      icon: <Music size={24} />,
+      category: "Media & Entertainment",
+      link: "/services/entertainment",
+      image: "/service-entertainment.jpg",
+    },
+    {
+      title: "F&B & Bar Management",
+      description:
+        "Curated dining experiences and premium bar services for your events.",
+      icon: <Coffee size={24} />,
+      category: "Hospitality",
+      link: "/services/fb-management",
+      image: "/service-fb.jpg",
     },
     {
       title: "Salon Coordination",
@@ -88,13 +124,17 @@ const ServicesPage = () => {
         "Access to top stylists and beauty professionals for your special occasions.",
       icon: <Scissors size={24} />,
       category: "Experiences",
+      link: "/services/salon",
+      image: "/service-salon.jpg",
     },
     {
-      title: "Private Jets & Choppers",
+      title: "Destination Venue Curation",
       description:
-        "Luxury private aviation services for seamless travel experiences.",
-      icon: <Globe size={24} />,
-      category: "Transportation",
+        "Access to exclusive venues worldwide, perfectly matched to your event requirements.",
+      icon: <MapPin size={24} />,
+      category: "Venues & Locations",
+      link: "/services/venue-curation",
+      image: "/service-venue.jpg",
     },
   ];
 
@@ -154,6 +194,7 @@ const ServicesPage = () => {
                   title={service.title}
                   description={service.description}
                   icon={service.icon}
+                  link={service.link}
                   index={index}
                 />
               ))}
@@ -221,7 +262,7 @@ const ServicesPage = () => {
               className="relative overflow-hidden aspect-video"
             >
               <img
-                src="/logo.png?height=720&width=1280"
+                src="/wedding5.jpg"
                 alt="Customized luxury services"
                 className="w-full h-full object-cover"
               />

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Phone, Mail, MapPin, Clock } from "react-feather"
+import { Phone, Mail, MapPin, Instagram } from "react-feather"
 import ContactForm from "../components/ContactForm"
 
 const ContactPage = () => {
@@ -9,22 +9,30 @@ const ContactPage = () => {
     {
       icon: <Phone size={24} />,
       title: "Phone",
-      details: ["+1 (800) LUXURY", "+1 (212) 555-1234"],
+      details: [
+        { text: "+91 92847 49367", link: "tel:+919284749367" },
+        { text: "+91 93566 66633", link: "tel:+919356666633" },
+      ],
     },
     {
       icon: <Mail size={24} />,
       title: "Email",
-      details: ["hello@arigato.com", "inquiries@arigato.com"],
+      details: [{ text: "hello@arigato.com", link: "mailto:hello@arigato.com" }],
     },
     {
       icon: <MapPin size={24} />,
       title: "Address",
-      details: ["1234 Luxury Avenue", "New York, NY 10001", "United States"],
+      details: [
+        {
+          text: "1, Modi House, Veera Desai, Andheri West, Mumbai",
+          link: "https://maps.google.com/?q=Modi+House,+Veera+Desai,+Andheri+West,+Mumbai",
+        },
+      ],
     },
     {
-      icon: <Clock size={24} />,
-      title: "Hours",
-      details: ["Monday - Friday: 9am - 6pm", "Saturday: 10am - 4pm", "Sunday: By appointment only"],
+      icon: <Instagram size={24} />,
+      title: "Social",
+      details: [{ text: "@arigatoevents", link: "https://www.instagram.com/arigatoevents/" }],
     },
   ]
 
@@ -107,8 +115,15 @@ const ContactPage = () => {
                     <h3 className="text-lg font-medium mb-2 text-primary">{item.title}</h3>
                     <div className="space-y-1">
                       {item.details.map((detail, i) => (
-                        <p key={i} className="text-sm text-primary/70">
-                          {detail}
+                        <p key={i} className="text-sm">
+                          <a
+                            href={detail.link}
+                            className="text-primary/70 hover:text-primary transition-colors"
+                            target={detail.link.startsWith("http") ? "_blank" : undefined}
+                            rel={detail.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                          >
+                            {detail.text}
+                          </a>
                         </p>
                       ))}
                     </div>
@@ -124,11 +139,17 @@ const ContactPage = () => {
                 className="mt-8 p-6 border border-primary/10"
               >
                 <h3 className="text-lg font-medium mb-4 text-primary">Our Location</h3>
-                <div className="aspect-video bg-primary/5">
-                  {/* Map placeholder - would be replaced with actual map */}
-                  <div className="w-full h-full flex items-center justify-center text-primary/70">
-                    Interactive Map Would Be Here
-                  </div>
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.5181650811397!2d72.82436491490722!3d19.13296638705042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7c8d7c8b96b%3A0x131da01fbc914b88!2sVeera%20Desai%20Rd%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1651234567890!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Arigato Location"
+                  ></iframe>
                 </div>
               </motion.div>
             </div>

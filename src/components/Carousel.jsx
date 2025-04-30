@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "react-feather"
 import { cn } from "../lib/utils"
@@ -8,6 +8,8 @@ import { cn } from "../lib/utils"
 const Carousel = ({ slides, autoPlay = true, interval = 5000, showArrows = true, showDots = true, className }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(1) // 1 for right, -1 for left
+  const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
 
   const goToNext = useCallback(() => {
     setDirection(1)
@@ -34,6 +36,22 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000, showArrows = true,
     return () => clearInterval(timer)
   }, [autoPlay, interval, goToNext])
 
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 75) {
+      goToNext()
+    } else if (touchEndX.current - touchStartX.current > 75) {
+      goToPrev()
+    }
+  }
+
   const slideVariants = {
     enter: (direction) => ({
       x: direction > 0 ? "100%" : "-100%",
@@ -50,7 +68,12 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000, showArrows = true,
   }
 
   return (
-    <div className={cn("relative overflow-hidden", className)}>
+    <div
+      className={cn("relative overflow-hidden", className)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div
           key={currentIndex}

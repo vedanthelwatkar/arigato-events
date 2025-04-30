@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Instagram, Facebook, Twitter, Mail } from "react-feather"
+import { Instagram, Mail, Phone } from "react-feather"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -9,22 +9,24 @@ const Footer = () => {
       <div className="w-full px-6 py-16 flex flex-col">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <h3 className="text-xl font-serif text-primary mb-4">ARIGATO</h3>
+            <img src="/logo.png" alt="Arigato" className="h-12 mb-4" />
             <p className="text-sm text-primary/70 mb-6 max-w-xs">
-              Luxury concierge services for the discerning clientele. Elevating experiences to extraordinary heights.
+              Gracious hospitality. Effortless luxury. Unforgettable impressions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-primary/70 hover:text-primary transition-colors">
+              <a
+                href="https://www.instagram.com/arigatoevents/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary/70 hover:text-primary transition-colors"
+              >
                 <Instagram size={18} />
-              </a>
-              <a href="#" className="text-primary/70 hover:text-primary transition-colors">
-                <Facebook size={18} />
-              </a>
-              <a href="#" className="text-primary/70 hover:text-primary transition-colors">
-                <Twitter size={18} />
               </a>
               <a href="mailto:hello@arigato.com" className="text-primary/70 hover:text-primary transition-colors">
                 <Mail size={18} />
+              </a>
+              <a href="tel:+919284749367" className="text-primary/70 hover:text-primary transition-colors">
+                <Phone size={18} />
               </a>
             </div>
           </div>
@@ -48,6 +50,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/memberships" className="text-sm text-primary/70 hover:text-primary transition-colors">
+                  Memberships
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="text-sm text-primary/70 hover:text-primary transition-colors">
                   Contact
                 </Link>
@@ -59,22 +66,34 @@ const Footer = () => {
             <h4 className="text-sm font-medium mb-4 text-primary">Services</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/services" className="text-sm text-primary/70 hover:text-primary transition-colors">
+                <Link
+                  to="/services/event-concierge"
+                  className="text-sm text-primary/70 hover:text-primary transition-colors"
+                >
                   Event Concierge
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-sm text-primary/70 hover:text-primary transition-colors">
+                <Link
+                  to="/services/venue-curation"
+                  className="text-sm text-primary/70 hover:text-primary transition-colors"
+                >
                   Destination Venue Curation
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-sm text-primary/70 hover:text-primary transition-colors">
+                <Link
+                  to="/services/content-creation"
+                  className="text-sm text-primary/70 hover:text-primary transition-colors"
+                >
                   Wedding Content Creation
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-sm text-primary/70 hover:text-primary transition-colors">
+                <Link
+                  to="/services/private-jets"
+                  className="text-sm text-primary/70 hover:text-primary transition-colors"
+                >
                   Private Jets & Choppers
                 </Link>
               </li>
@@ -84,9 +103,10 @@ const Footer = () => {
           <div>
             <h4 className="text-sm font-medium mb-4 text-primary">Contact</h4>
             <ul className="space-y-2">
-              <li className="text-sm text-primary/70">1234 Luxury Avenue</li>
-              <li className="text-sm text-primary/70">New York, NY 10001</li>
-              <li className="text-sm text-primary/70">+1 (800) LUXURY</li>
+              <li className="text-sm text-primary/70">1, Modi House, Veera Desai</li>
+              <li className="text-sm text-primary/70">Andheri West, Mumbai</li>
+              <li className="text-sm text-primary/70">+91 92847 49367</li>
+              <li className="text-sm text-primary/70">+91 93566 66633</li>
               <li>
                 <a
                   href="mailto:hello@arigato.com"

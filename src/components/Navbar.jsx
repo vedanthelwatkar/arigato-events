@@ -22,6 +22,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
+    { name: "Memberships", path: "/memberships" },
     { name: "Contact", path: "/contact" },
   ]
 
@@ -34,13 +35,8 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
     >
       <div className="w-full px-6 py-6 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-xl md:text-2xl font-serif text-primary"
-          >
-            ARIGATO
+          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <img src="/logo.png" alt="Arigato" className="h-10" />
           </motion.div>
         </Link>
 
