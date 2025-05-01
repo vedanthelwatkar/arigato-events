@@ -20,7 +20,7 @@ const MembershipsPage = () => {
         "Personalized gifting services",
       ],
       image: "/hni-families-arigatoevents.jpg",
-      externalLink: "https://jetsail.com/hni-membership",
+      externalLink: "https://jetsail.in/",
     },
     {
       title: "Five Star Hotels",
@@ -34,7 +34,7 @@ const MembershipsPage = () => {
         "Custom welcome experiences",
       ],
       image: "/five-star-hotels-arigatoevents.jpg",
-      externalLink: "https://jetsail.com/hotel-partnership",
+      externalLink: "https://jetsail.in/",
     },
   ];
 

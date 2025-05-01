@@ -34,7 +34,7 @@ const ServiceDetailPage = () => {
       fullDescription:
         "Our Private Jets & Choppers service provides exclusive air transportation for you and your guests. Whether you need to transport the wedding party to a destination venue or arrange VIP arrivals, we coordinate with top aviation providers to ensure comfortable, luxurious, and efficient travel. Every detail is handled with discretion and attention to your specific requirements.",
       image: "/wedding3.jpg",
-      externalLink: "https://jetsail.com",
+      externalLink: "https://jetsail.in",
     },
   };
 
