@@ -78,3 +78,24 @@ body {
     font-family: "Inter", sans-serif;
   }
 }
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8e9d6; /* neutral-100 */
+  border-radius: 8px; /* sm border radius */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b24500; /* brand primary */
+  border-radius: 8px; /* sm border radius */
+  border: 3px solid #f8e9d6; /* border to create padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9c3c01; /* slightly darker brand primary for hover */
+}

@@ -57,7 +57,7 @@ const InfiniteCarousel = () => {
 
   return (
     <div className="pt-10 pb-5 md:py-[60px] w-full flex items-center justify-center overflow-hidden">
-      <div className="flex flex-col gap-12 w-full max-w-6xl">
+      <div className="flex flex-col gap-12 w-full max-w-dvh">
         <div className="flex flex-col gap-8 sm:gap-10">
           <div
             ref={containerRef}

@@ -97,7 +97,7 @@ const HomePage = () => {
       </section>
 
       <section className="py-16 bg-primary/5">
-        <div className="w-full px-6 flex flex-col items-center">
+        <div className="w-full flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,9 +113,7 @@ const HomePage = () => {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            <InfiniteCarousel />
-          </div>
+          {/* <InfiniteCarousel /> */}
         </div>
       </section>
 
