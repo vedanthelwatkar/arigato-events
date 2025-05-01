@@ -171,7 +171,7 @@ const ServicesPage = () => {
           <div className="w-full px-6 flex flex-col items-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
               className="text-2xl md:text-3xl font-serif mb-12 text-center text-primary"
