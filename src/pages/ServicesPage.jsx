@@ -255,7 +255,7 @@ const ServicesPage = () => {
               className="relative overflow-hidden aspect-video"
             >
               <img
-                src="/wedding5.jpg"
+                src="/customized-solutions-arigatoevents.jpg"
                 alt="Customized luxury services"
                 className="w-full h-full object-cover"
               />

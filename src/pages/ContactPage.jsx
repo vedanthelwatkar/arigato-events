@@ -70,7 +70,7 @@ const ContactPage = () => {
             <div>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="text-3xl font-serif mb-6 text-primary"
               >
@@ -78,7 +78,7 @@ const ContactPage = () => {
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-primary/70 mb-8"
               >
@@ -93,7 +93,7 @@ const ContactPage = () => {
             <div>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
                 className="text-3xl font-serif mb-6 text-primary"
@@ -102,7 +102,7 @@ const ContactPage = () => {
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
                 className="text-primary/70 mb-8"
@@ -115,7 +115,7 @@ const ContactPage = () => {
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
                     viewport={{ once: true }}
                     className="p-6 border border-primary/10"

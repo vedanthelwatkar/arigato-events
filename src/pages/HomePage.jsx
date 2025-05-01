@@ -16,15 +16,9 @@ import Carousel from "../components/Carousel";
 import ServiceCard from "../components/ServiceCard";
 import ServiceCarousel from "../components/ServiceCarousel";
 import { Button } from "../components/Button";
+import InfiniteCarousel from "@/components/InfiniteCarousel";
 
 const HomePage = () => {
-  const clients = [
-    { name: "Luxury Hotel", logo: "/client1.jpg" },
-    { name: "Premium Resort", logo: "/client2.jpg" },
-    { name: "Elite Events", logo: "/client3.jpg" },
-    { name: "Exclusive Venues", logo: "/client4.jpg" },
-  ];
-
   const featuredServices = [
     {
       title: "Event Concierge",
@@ -120,22 +114,7 @@ const HomePage = () => {
           </motion.div>
 
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 max-w-5xl">
-            {clients.map((client, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="w-32 h-32 flex items-center justify-center"
-              >
-                <img
-                  src={client.logo || "/placeholder.svg"}
-                  alt={client.name}
-                  className="max-w-full max-h-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-                />
-              </motion.div>
-            ))}
+            <InfiniteCarousel />
           </div>
         </div>
       </section>

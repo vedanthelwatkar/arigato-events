@@ -40,7 +40,7 @@ const AboutPage = () => {
     },
     { src: "/wedding-decoration-arigatoevents.jpg", alt: "Wedding Decoration" },
     { src: "/wedding-venue-arigatoevents.jpg", alt: "Wedding Venue" },
-    { src: "/wedding-experience-arigatoevents.jpg", alt: "Wedding Experience" },
+    { src: "/wedding-haldi-arigatoevents.jpg", alt: "Wedding Experience" },
     {
       src: "/wedding-celebration-arigatoevents.jpg",
       alt: "Wedding Celebration",
