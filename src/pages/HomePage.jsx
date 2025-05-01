@@ -113,7 +113,7 @@ const HomePage = () => {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 max-w-5xl">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             <InfiniteCarousel />
           </div>
         </div>

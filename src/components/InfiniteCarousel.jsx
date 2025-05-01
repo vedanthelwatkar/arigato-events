@@ -1,7 +1,22 @@
 import React, { useRef, useEffect } from "react";
 import { motion, useAnimation, useAnimationFrame } from "framer-motion";
 
-const logos = [];
+const logos = [
+  "/logos/being-human.png",
+  "/logos/muthoot-group.png",
+  "/logos/punj-lloyd.png",
+  "/logos/amp-motors.png",
+  "/logos/sabyasachi.png",
+  "/logos/anju-modi.png",
+  "/logos/rahul-mishra.png",
+  "/logos/suneet-varma.png",
+  "/logos/blackberrys.png",
+  "/logos/sanjay-ghodawat.webp",
+  "/logos/somany.png",
+  "/logos/dyp-group.png",
+  "/logos/dollar-group.png",
+  "/logos/rockland-hospitals.png",
+];
 
 const InfiniteCarousel = () => {
   const duplicatedUniversities = [...logos, ...logos];
@@ -61,7 +76,7 @@ const InfiniteCarousel = () => {
                   <img
                     src={item}
                     alt={`arigatoevents-${index}`}
-                    className="h-[80px] w-auto mix-blend-screen"
+                    className="h-[80px] w-auto mix-blend-screen bg-white rounded-lg"
                   />
                 </div>
               ))}
