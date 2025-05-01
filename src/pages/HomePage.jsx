@@ -113,7 +113,7 @@ const HomePage = () => {
             </p>
           </motion.div>
 
-          {/* <InfiniteCarousel /> */}
+          <InfiniteCarousel />
         </div>
       </section>
 
