@@ -13,7 +13,7 @@ const HomePage = () => {
   const heroSlides = [
     <div
       key="slide1"
-      className="h-[70vh] md:h-[80vh] relative flex items-center"
+      className="h-[90vh] pt-32 sm:pt-0 md:h-[80vh] relative flex items-center"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/50 z-10" />
       <div
@@ -25,7 +25,7 @@ const HomePage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="md:w-1/2 mb-8 md:mb-0"
+          className="md:w-1/2 mb-8 md:mb-0 sm:px-20"
         >
           <h1 className="text-4xl md:text-6xl font-serif mb-4 text-primary">
             Luxury Wedding Hospitality
@@ -56,7 +56,7 @@ const HomePage = () => {
 
     <div
       key="slide2"
-      className="h-[70vh] md:h-[80vh] relative flex items-center"
+      className="h-[90vh] pt-32 sm:pt-0 md:h-[80vh] relative flex items-center"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/50 z-10" />
       <div
@@ -68,7 +68,7 @@ const HomePage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="md:w-1/2 mb-8 md:mb-0"
+          className="md:w-1/2 mb-8 md:mb-0 sm:px-20"
         >
           <h1 className="text-4xl md:text-6xl font-serif mb-4 text-primary">
             Curated Luxury Experiences
@@ -83,6 +83,48 @@ const HomePage = () => {
             </Button>
             <Button variant="outline" size="lg" asChild>
               <Link to="/about">About Us</Link>
+            </Button>
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="md:w-1/2 flex justify-center"
+        >
+          <img src="/logo.png" alt="Arigato" className="w-full max-w-[300px]" />
+        </motion.div>
+      </div>
+    </div>,
+
+    <div
+      key="slide3"
+      className="h-[90vh] pt-32 sm:pt-0 md:h-[80vh] relative flex items-center"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/50 z-10" />
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url('/wedding3.jpg')` }}
+      />
+      <div className="w-full px-6 relative z-20 flex flex-col md:flex-row items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="md:w-1/2 mb-8 md:mb-0 sm:px-20"
+        >
+          <h1 className="text-4xl md:text-6xl font-serif mb-4 text-primary">
+            Exceptional Hospitality
+          </h1>
+          <p className="text-lg md:text-xl text-primary/70 mb-8">
+            Creating unforgettable moments with attention to every detail.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button variant="default" size="lg" asChild>
+              <Link to="/memberships">Our Memberships</Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/contact">Get in Touch</Link>
             </Button>
           </div>
         </motion.div>
@@ -157,7 +199,7 @@ const HomePage = () => {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <Carousel slides={heroSlides} autoPlay={true} interval={6000} />
+        <Carousel slides={heroSlides} autoPlay={true} interval={300000} />
       </section>
 
       {/* Clients Section */}
@@ -218,22 +260,7 @@ const HomePage = () => {
             </p>
           </motion.div>
 
-          <div className="hidden md:block w-full max-w-6xl px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredServices.map((service, index) => (
-                <ServiceCard
-                  key={index}
-                  title={service.title}
-                  description={service.description}
-                  icon={service.icon}
-                  link={service.link}
-                  index={index}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="md:hidden w-full">
+          <div className="w-full max-w-6xl">
             <ServiceCarousel>
               {featuredServices.map((service, index) => (
                 <ServiceCard
@@ -302,7 +329,7 @@ const HomePage = () => {
               className="relative aspect-video overflow-hidden"
             >
               <img
-                src="/wedding3.jpg"
+                src="/guest-welcome-01-arigatoevents.jpg"
                 alt="Luxury wedding hospitality"
                 className="w-full h-full object-cover"
               />
@@ -407,7 +434,7 @@ const HomePage = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-white border text-primary border-background hover:bg-background/90"
+                className="bg-secondary text-white border-secondary hover:bg-secondary/10"
                 asChild
               >
                 <Link to="/contact">Get in Touch</Link>

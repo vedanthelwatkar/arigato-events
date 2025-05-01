@@ -1,43 +1,53 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
-import { Users, Award, Shield, Globe } from "react-feather"
-import { Button } from "../components/Button"
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Users, Award, Shield, Globe } from "react-feather";
+import { Button } from "../components/Button";
 
 const AboutPage = () => {
   const values = [
     {
       title: "Excellence",
-      description: "We strive for perfection in every detail, ensuring that each experience exceeds expectations.",
+      description:
+        "We strive for perfection in every detail, ensuring that each experience exceeds expectations.",
       icon: <Award size={24} />,
     },
     {
       title: "Discretion",
-      description: "We maintain the highest levels of confidentiality and privacy for our discerning clientele.",
+      description:
+        "We maintain the highest levels of confidentiality and privacy for our discerning clientele.",
       icon: <Shield size={24} />,
     },
     {
       title: "Personalization",
-      description: "Every service is tailored to the unique preferences and requirements of each client.",
+      description:
+        "Every service is tailored to the unique preferences and requirements of each client.",
       icon: <Users size={24} />,
     },
     {
       title: "Global Reach",
-      description: "Our extensive network allows us to create exceptional experiences anywhere in the world.",
+      description:
+        "Our extensive network allows us to create exceptional experiences anywhere in the world.",
       icon: <Globe size={24} />,
     },
-  ]
+  ];
 
   // Gallery images
   const galleryImages = [
-    { src: "/wedding1.jpg", alt: "Luxury Wedding Setup" },
-    { src: "/wedding2.jpg", alt: "Wedding Decoration" },
-    { src: "/wedding3.jpg", alt: "Wedding Venue" },
-    { src: "/wedding4.jpg", alt: "Wedding Experience" },
-    { src: "/wedding5.jpg", alt: "Wedding Celebration" },
-    { src: "/client1.jpg", alt: "Client Event" },
-  ]
+    {
+      src: "/wedding-luxury-setup-arigatoevents.jpg",
+      alt: "Luxury Wedding Setup",
+    },
+    { src: "/wedding-decoration-arigatoevents.jpg", alt: "Wedding Decoration" },
+    { src: "/wedding-venue-arigatoevents.jpg", alt: "Wedding Venue" },
+    { src: "/wedding-experience-arigatoevents.jpg", alt: "Wedding Experience" },
+    {
+      src: "/wedding-celebration-arigatoevents.jpg",
+      alt: "Wedding Celebration",
+    },
+    { src: "/wedding-client-event-arigatoevents.jpg", alt: "Client Event" },
+  ];
 
   return (
     <>
@@ -49,9 +59,12 @@ const AboutPage = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-serif mb-6 text-primary">About Arigato</h1>
+            <h1 className="text-4xl md:text-5xl font-serif mb-6 text-primary">
+              About Arigato
+            </h1>
             <p className="text-xl text-primary/70">
-              Gracious hospitality. Effortless luxury. Unforgettable impressions.
+              Gracious hospitality. Effortless luxury. Unforgettable
+              impressions.
             </p>
           </motion.div>
         </div>
@@ -64,24 +77,30 @@ const AboutPage = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
               className="order-2 lg:order-1"
             >
-              <h2 className="text-3xl md:text-4xl font-serif mb-6 text-primary">Our Story</h2>
+              <h2 className="text-3xl md:text-4xl font-serif mb-6 text-primary">
+                Our Story
+              </h2>
               <p className="text-primary/70 mb-6">
-                ARIGATO is a luxury wedding hospitality brand redefining guest experience through impeccable service,
-                cultural elegance, and heartfelt detail.
+                ARIGATO is a luxury wedding hospitality brand redefining guest
+                experience through impeccable service, cultural elegance, and
+                heartfelt detail.
               </p>
               <p className="text-primary/70 mb-6">
-                Inspired by the Japanese spirit of omotenashi—the art of thoughtful hospitality—we specialize in
-                welcoming your guests with warmth, care, and curated experiences that reflect the beauty of your
-                celebration. From bespoke welcome lounges and itinerary planning to seamless guest coordination and
-                on-site concierge, ARIGATO ensures every moment feels personal, polished, and profoundly memorable.
+                Inspired by the Japanese spirit of omotenashi—the art of
+                thoughtful hospitality—we specialize in welcoming your guests
+                with warmth, care, and curated experiences that reflect the
+                beauty of your celebration. From bespoke welcome lounges and
+                itinerary planning to seamless guest coordination and on-site
+                concierge, ARIGATO ensures every moment feels personal,
+                polished, and profoundly memorable.
               </p>
               <p className="text-primary/70">
-                Our lucky mascot, Maneki Neko, symbolizes good fortune and joyful beginnings. She represents our promise
-                to deliver hospitality that feels just as meaningful as the wedding itself—infused with charm,
-                gratitude, and a touch of magic.
+                Our lucky mascot, Maneki Neko, symbolizes good fortune and
+                joyful beginnings. She represents our promise to deliver
+                hospitality that feels just as meaningful as the wedding
+                itself—infused with charm, gratitude, and a touch of magic.
               </p>
             </motion.div>
 
@@ -93,7 +112,11 @@ const AboutPage = () => {
               className="order-1 lg:order-2"
             >
               <div className="relative overflow-hidden">
-                <img src="/wedding4.jpg" alt="Arigato luxury hospitality" className="w-full h-full object-cover" />
+                <img
+                  src="/couple-wedding-arigatoevents.jpg"
+                  alt="Arigato luxury hospitality"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </motion.div>
           </div>
@@ -110,8 +133,13 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center max-w-3xl mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">Our Work</h2>
-            <p className="text-primary/70">A glimpse into the exceptional experiences we create for our clients.</p>
+            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">
+              Our Work
+            </h2>
+            <p className="text-primary/70">
+              A glimpse into the exceptional experiences we create for our
+              clients.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
@@ -144,8 +172,13 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center max-w-3xl mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">Our Values</h2>
-            <p className="text-primary/70">At the core of Arigato are the principles that guide everything we do.</p>
+            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">
+              Our Values
+            </h2>
+            <p className="text-primary/70">
+              At the core of Arigato are the principles that guide everything we
+              do.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
@@ -159,7 +192,9 @@ const AboutPage = () => {
                 className="p-6 border border-primary/10"
               >
                 <div className="mb-4 text-primary">{value.icon}</div>
-                <h3 className="text-lg font-medium mb-2 text-primary">{value.title}</h3>
+                <h3 className="text-lg font-medium mb-2 text-primary">
+                  {value.title}
+                </h3>
                 <p className="text-sm text-primary/70">{value.description}</p>
               </motion.div>
             ))}
@@ -177,8 +212,12 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center max-w-3xl mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">Our Process</h2>
-            <p className="text-primary/70">How we work with you to create exceptional experiences.</p>
+            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">
+              Our Process
+            </h2>
+            <p className="text-primary/70">
+              How we work with you to create exceptional experiences.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
@@ -190,9 +229,12 @@ const AboutPage = () => {
               className="p-6 border border-primary/10"
             >
               <div className="text-4xl font-serif text-primary mb-4">01</div>
-              <h3 className="text-xl font-medium mb-3 text-primary">Consultation</h3>
+              <h3 className="text-xl font-medium mb-3 text-primary">
+                Consultation
+              </h3>
               <p className="text-primary/70">
-                We begin with an in-depth consultation to understand your vision, preferences, and requirements.
+                We begin with an in-depth consultation to understand your
+                vision, preferences, and requirements.
               </p>
             </motion.div>
 
@@ -204,9 +246,12 @@ const AboutPage = () => {
               className="p-6 border border-primary/10"
             >
               <div className="text-4xl font-serif text-primary mb-4">02</div>
-              <h3 className="text-xl font-medium mb-3 text-primary">Curation</h3>
+              <h3 className="text-xl font-medium mb-3 text-primary">
+                Curation
+              </h3>
               <p className="text-primary/70">
-                Our team curates a bespoke plan tailored to your specific needs and preferences.
+                Our team curates a bespoke plan tailored to your specific needs
+                and preferences.
               </p>
             </motion.div>
 
@@ -218,9 +263,12 @@ const AboutPage = () => {
               className="p-6 border border-primary/10"
             >
               <div className="text-4xl font-serif text-primary mb-4">03</div>
-              <h3 className="text-xl font-medium mb-3 text-primary">Execution</h3>
+              <h3 className="text-xl font-medium mb-3 text-primary">
+                Execution
+              </h3>
               <p className="text-primary/70">
-                We handle every detail with precision and care, ensuring a flawless experience from start to finish.
+                We handle every detail with precision and care, ensuring a
+                flawless experience from start to finish.
               </p>
             </motion.div>
           </div>
@@ -246,7 +294,8 @@ const AboutPage = () => {
               viewport={{ once: true }}
               className="mb-8 opacity-90"
             >
-              Experience the unparalleled service and attention to detail that defines Arigato.
+              Experience the unparalleled service and attention to detail that
+              defines Arigato.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -257,7 +306,7 @@ const AboutPage = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-background text-primary border-background hover:bg-background/90"
+                className="bg-secondary text-white border-secondary hover:bg-secondary/10"
                 asChild
               >
                 <Link to="/contact">Contact Us</Link>
@@ -267,7 +316,7 @@ const AboutPage = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

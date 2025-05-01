@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Link, useLocation } from "react-router-dom"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "react-feather"
-import { cn } from "../lib/utils"
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "react-feather";
+import { cn } from "../lib/utils";
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
-  const location = useLocation()
-  const [mounted, setMounted] = useState(false)
+  const location = useLocation();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -24,19 +24,27 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
     { name: "Services", path: "/services" },
     { name: "Memberships", path: "/memberships" },
     { name: "Contact", path: "/contact" },
-  ]
+  ];
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "bg-background/90 backdrop-blur-md" : "bg-transparent",
+        scrolled ? "bg-background/90 backdrop-blur-md" : "bg-transparent"
       )}
     >
       <div className="w-full px-6 py-6 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <img src="/logo.png" alt="Arigato" className="h-10" />
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <img
+              src="/elegant-maneki-neko-statue.png"
+              alt="Arigato"
+              className="h-10"
+            />
           </motion.div>
         </Link>
 
@@ -48,7 +56,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
               to={link.path}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-primary",
-                location.pathname === link.path ? "text-primary" : "text-primary/70",
+                location.pathname === link.path
+                  ? "text-primary"
+                  : "text-primary/70"
               )}
             >
               {link.name}
@@ -90,7 +100,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

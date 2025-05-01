@@ -7,35 +7,48 @@ import { cn } from "../lib/utils"
 
 const Carousel = ({ slides, autoPlay = true, interval = 5000, showArrows = true, showDots = true, className }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [direction, setDirection] = useState(1) // 1 for right, -1 for left
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [direction, setDirection] = useState(0) // 1 for right, -1 for left
   const touchStartX = useRef(0)
   const touchEndX = useRef(0)
+  const autoPlayTimerRef = useRef(null)
 
   const goToNext = useCallback(() => {
+    if (isAnimating) return
+    setIsAnimating(true)
     setDirection(1)
     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length)
-  }, [slides.length])
+  }, [slides.length, isAnimating])
 
   const goToPrev = useCallback(() => {
+    if (isAnimating) return
+    setIsAnimating(true)
     setDirection(-1)
     setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length)
-  }, [slides.length])
+  }, [slides.length, isAnimating])
 
   const goToSlide = (index) => {
+    if (isAnimating || index === currentIndex) return
+    setIsAnimating(true)
     setDirection(index > currentIndex ? 1 : -1)
     setCurrentIndex(index)
   }
 
+  // Reset autoplay timer when slide changes
   useEffect(() => {
-    if (!autoPlay) return
+    if (autoPlay) {
+      clearTimeout(autoPlayTimerRef.current)
+      autoPlayTimerRef.current = setTimeout(() => {
+        goToNext()
+      }, interval)
+    }
 
-    const timer = setInterval(() => {
-      goToNext()
-    }, interval)
+    return () => {
+      clearTimeout(autoPlayTimerRef.current)
+    }
+  }, [autoPlay, interval, currentIndex, goToNext])
 
-    return () => clearInterval(timer)
-  }, [autoPlay, interval, goToNext])
-
+  // Touch handlers for mobile swipe
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX
   }
@@ -45,25 +58,40 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000, showArrows = true,
   }
 
   const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 75) {
+    const touchDiff = touchStartX.current - touchEndX.current
+    if (touchDiff > 75) {
       goToNext()
-    } else if (touchEndX.current - touchStartX.current > 75) {
+    } else if (touchDiff < -75) {
       goToPrev()
     }
   }
 
+  // Animation variants
   const slideVariants = {
     enter: (direction) => ({
       x: direction > 0 ? "100%" : "-100%",
       opacity: 0,
+      scale: 0.95,
     }),
     center: {
       x: 0,
       opacity: 1,
+      scale: 1,
+      transition: {
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.5 },
+        scale: { duration: 0.5 },
+      },
     },
     exit: (direction) => ({
       x: direction > 0 ? "-100%" : "100%",
       opacity: 0,
+      scale: 0.95,
+      transition: {
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.5 },
+        scale: { duration: 0.5 },
+      },
     }),
   }
 
@@ -74,7 +102,7 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000, showArrows = true,
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      <AnimatePresence initial={false} custom={direction} mode="wait">
+      <AnimatePresence initial={false} custom={direction} mode="wait" onExitComplete={() => setIsAnimating(false)}>
         <motion.div
           key={currentIndex}
           custom={direction}
@@ -82,10 +110,6 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000, showArrows = true,
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.5 },
-          }}
           className="w-full h-full"
         >
           {slides[currentIndex]}
@@ -96,14 +120,14 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000, showArrows = true,
         <>
           <button
             onClick={goToPrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-primary hover:bg-background transition-colors z-10"
+            className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/80 text-primary hover:bg-background transition-colors z-10 shadow-md backdrop-blur-sm"
             aria-label="Previous slide"
           >
             <ChevronLeft size={20} />
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-primary hover:bg-background transition-colors z-10"
+            className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/80 text-primary hover:bg-background transition-colors z-10 shadow-md backdrop-blur-sm"
             aria-label="Next slide"
           >
             <ChevronRight size={20} />
@@ -112,14 +136,14 @@ const Carousel = ({ slides, autoPlay = true, interval = 5000, showArrows = true,
       )}
 
       {showDots && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={cn(
-                "w-2 h-2 rounded-full transition-all",
-                currentIndex === index ? "bg-primary w-4" : "bg-background/60 hover:bg-background",
+                "w-2 h-2 rounded-full transition-all duration-300 shadow-md",
+                currentIndex === index ? "bg-primary w-6" : "bg-background/70 hover:bg-background hover:scale-110",
               )}
               aria-label={`Go to slide ${index + 1}`}
             />

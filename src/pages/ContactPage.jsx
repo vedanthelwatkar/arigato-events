@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Phone, Mail, MapPin, Instagram } from "react-feather"
-import ContactForm from "../components/ContactForm"
+import { motion } from "framer-motion";
+import { Phone, Mail, MapPin, Instagram } from "react-feather";
+import ContactForm from "../components/ContactForm";
 
 const ContactPage = () => {
   const contactInfo = [
@@ -17,7 +17,9 @@ const ContactPage = () => {
     {
       icon: <Mail size={24} />,
       title: "Email",
-      details: [{ text: "hello@arigato.com", link: "mailto:hello@arigato.com" }],
+      details: [
+        { text: "hello@arigato.com", link: "mailto:hello@arigato.com" },
+      ],
     },
     {
       icon: <MapPin size={24} />,
@@ -32,9 +34,14 @@ const ContactPage = () => {
     {
       icon: <Instagram size={24} />,
       title: "Social",
-      details: [{ text: "@arigatoevents", link: "https://www.instagram.com/arigatoevents/" }],
+      details: [
+        {
+          text: "@arigatoevents",
+          link: "https://www.instagram.com/arigatoevents/",
+        },
+      ],
     },
-  ]
+  ];
 
   return (
     <>
@@ -46,9 +53,12 @@ const ContactPage = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-serif mb-6 text-primary">Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-serif mb-6 text-primary">
+              Contact Us
+            </h1>
             <p className="text-xl text-primary/70">
-              We're here to assist you with any inquiries about our luxury concierge services.
+              We're here to assist you with any inquiries about our luxury
+              concierge services.
             </p>
           </motion.div>
         </div>
@@ -62,7 +72,6 @@ const ContactPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
                 className="text-3xl font-serif mb-6 text-primary"
               >
                 Get in Touch
@@ -71,11 +80,11 @@ const ContactPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
                 className="text-primary/70 mb-8"
               >
-                Fill out the form below, and one of our luxury concierge specialists will contact you shortly to discuss
-                your requirements.
+                Fill out the form below, and one of our luxury concierge
+                specialists will contact you shortly to discuss your
+                requirements.
               </motion.p>
 
               <ContactForm />
@@ -112,15 +121,25 @@ const ContactPage = () => {
                     className="p-6 border border-primary/10"
                   >
                     <div className="text-primary mb-4">{item.icon}</div>
-                    <h3 className="text-lg font-medium mb-2 text-primary">{item.title}</h3>
+                    <h3 className="text-lg font-medium mb-2 text-primary">
+                      {item.title}
+                    </h3>
                     <div className="space-y-1">
                       {item.details.map((detail, i) => (
                         <p key={i} className="text-sm">
                           <a
                             href={detail.link}
                             className="text-primary/70 hover:text-primary transition-colors"
-                            target={detail.link.startsWith("http") ? "_blank" : undefined}
-                            rel={detail.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                            target={
+                              detail.link.startsWith("http")
+                                ? "_blank"
+                                : undefined
+                            }
+                            rel={
+                              detail.link.startsWith("http")
+                                ? "noopener noreferrer"
+                                : undefined
+                            }
                           >
                             {detail.text}
                           </a>
@@ -138,7 +157,9 @@ const ContactPage = () => {
                 viewport={{ once: true }}
                 className="mt-8 p-6 border border-primary/10"
               >
-                <h3 className="text-lg font-medium mb-4 text-primary">Our Location</h3>
+                <h3 className="text-lg font-medium mb-4 text-primary">
+                  Our Location
+                </h3>
                 <div className="aspect-video">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.5181650811397!2d72.82436491490722!3d19.13296638705042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7c8d7c8b96b%3A0x131da01fbc914b88!2sVeera%20Desai%20Rd%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1651234567890!5m2!1sen!2sin"
@@ -157,7 +178,7 @@ const ContactPage = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;

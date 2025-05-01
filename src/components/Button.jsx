@@ -11,7 +11,7 @@ const Button = forwardRef(
 
           // Variants
           variant === "default" &&
-            "bg-primary text-background hover:bg-primary/90",
+            "bg-primary text-background hover:bg-primary/90 p-4",
           variant === "outline" &&
             "border border-primary bg-transparent text-primary hover:bg-primary/5",
           variant === "ghost" && "hover:bg-primary/5 text-primary",

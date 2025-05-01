@@ -1,15 +1,16 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
-import { ExternalLink } from "react-feather"
-import { Button } from "../components/Button"
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ExternalLink } from "react-feather";
+import { Button } from "../components/Button";
 
 const MembershipsPage = () => {
   const membershipPlans = [
     {
       title: "HNI Families",
-      description: "Exclusive services for high net worth individuals and their families.",
+      description:
+        "Exclusive services for high net worth individuals and their families.",
       features: [
         "Dedicated personal concierge",
         "Priority access to all services",
@@ -18,7 +19,7 @@ const MembershipsPage = () => {
         "Exclusive venue access",
         "Personalized gifting services",
       ],
-      image: "/membership-hni.jpg",
+      image: "/hni-families-arigatoevents.jpg",
       externalLink: "https://jetsail.com/hni-membership",
     },
     {
@@ -32,10 +33,10 @@ const MembershipsPage = () => {
         "Entertainment booking",
         "Custom welcome experiences",
       ],
-      image: "/membership-hotel.jpg",
+      image: "/five-star-hotels-arigatoevents.jpg",
       externalLink: "https://jetsail.com/hotel-partnership",
     },
-  ]
+  ];
 
   return (
     <>
@@ -47,8 +48,12 @@ const MembershipsPage = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-serif mb-6 text-primary">Membership Programs</h1>
-            <p className="text-xl text-primary/70">Exclusive membership options tailored to different client needs.</p>
+            <h1 className="text-4xl md:text-5xl font-serif mb-6 text-primary">
+              Membership Programs
+            </h1>
+            <p className="text-xl text-primary/70">
+              Exclusive membership options tailored to different client needs.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -62,7 +67,6 @@ const MembershipsPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
                 className="border border-primary/10 overflow-hidden"
               >
                 <div className="aspect-video overflow-hidden">
@@ -73,24 +77,39 @@ const MembershipsPage = () => {
                   />
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-serif mb-3 text-primary">{plan.title}</h3>
+                  <h3 className="text-2xl font-serif mb-3 text-primary">
+                    {plan.title}
+                  </h3>
                   <p className="text-primary/70 mb-6">{plan.description}</p>
 
-                  <h4 className="text-lg font-medium mb-4 text-primary">Features</h4>
+                  <h4 className="text-lg font-medium mb-4 text-primary">
+                    Features
+                  </h4>
                   <ul className="space-y-2 mb-8">
                     {plan.features.map((feature, i) => (
-                      <li key={i} className="text-primary/70 text-sm flex items-start">
+                      <li
+                        key={i}
+                        className="text-primary/70 text-sm flex items-start"
+                      >
                         <span className="mr-2 text-primary">•</span>
                         {feature}
                       </li>
                     ))}
                   </ul>
 
-                  <Button variant="default" className="w-full flex items-center justify-center" asChild>
-                    <a href={plan.externalLink} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="default"
+                    className="w-full flex items-center justify-center p-2"
+                    asChild
+                  >
+                    <a
+                      href={plan.externalLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Learn More
-                      <ExternalLink size={16} className="ml-2" />
                     </a>
+                    <ExternalLink size={16} className="ml-2" />
                   </Button>
                 </div>
               </motion.div>
@@ -118,8 +137,9 @@ const MembershipsPage = () => {
               viewport={{ once: true }}
               className="text-primary/70 mb-8"
             >
-              We understand that each client has unique needs. Contact us to discuss a customized membership plan
-              tailored specifically to your requirements and preferences.
+              We understand that each client has unique needs. Contact us to
+              discuss a customized membership plan tailored specifically to your
+              requirements and preferences.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -135,7 +155,7 @@ const MembershipsPage = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default MembershipsPage
+export default MembershipsPage;
