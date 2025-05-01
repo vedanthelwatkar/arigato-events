@@ -38,7 +38,7 @@ const WhatsappIcon = () => {
 };
 
 const WhatsAppButton = () => {
-  const phoneNumber = "919284749367"; // Format: country code + number without + or spaces
+  const phoneNumber = "919284749367";
   const message = "Hello, I'd like to inquire about your services.";
 
   const handleClick = () => {

@@ -1,10 +1,17 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Star } from "react-feather"
-import { cn } from "../lib/utils"
+import { motion } from "framer-motion";
+import { Star } from "react-feather";
+import { cn } from "../lib/utils";
 
-const TestimonialCard = ({ quote, author, role, rating = 5, className, index = 0 }) => {
+const TestimonialCard = ({
+  quote,
+  author,
+  role,
+  rating = 5,
+  className,
+  index = 0,
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -15,7 +22,13 @@ const TestimonialCard = ({ quote, author, role, rating = 5, className, index = 0
     >
       <div className="flex mb-4">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} size={16} className={i < rating ? "text-primary fill-primary" : "text-primary/30"} />
+          <Star
+            key={i}
+            size={16}
+            className={
+              i < rating ? "text-primary fill-primary" : "text-primary/30"
+            }
+          />
         ))}
       </div>
 
@@ -26,7 +39,7 @@ const TestimonialCard = ({ quote, author, role, rating = 5, className, index = 0
         <p className="text-sm text-primary/70">{role}</p>
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default TestimonialCard
+export default TestimonialCard;

@@ -1,4 +1,3 @@
-// components/ErrorBoundary.jsx
 import { Component } from "react";
 import ErrorPage from "../pages/ErrorPage";
 

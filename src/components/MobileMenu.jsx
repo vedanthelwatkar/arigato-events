@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { Link, useLocation } from "react-router-dom"
-import { motion, AnimatePresence } from "framer-motion"
-import { Phone, Mail, Instagram } from "react-feather"
-import { cn } from "../lib/utils"
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { Phone, Mail, Instagram } from "react-feather";
+import { cn } from "../lib/utils";
 
 const MobileMenu = ({ isOpen, setIsOpen }) => {
-  const location = useLocation()
+  const location = useLocation();
 
   const closeMenu = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   const menuVariants = {
     closed: {
@@ -29,7 +29,7 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
         ease: [0.22, 1, 0.36, 1],
       },
     },
-  }
+  };
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -37,14 +37,30 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
     { name: "Services", path: "/services" },
     { name: "Memberships", path: "/memberships" },
     { name: "Contact", path: "/contact" },
-  ]
+  ];
 
   const socialLinks = [
-    { icon: <Phone size={18} />, label: "+91 92847 49367", href: "tel:+919284749367" },
-    { icon: <Phone size={18} />, label: "+91 93566 66633", href: "tel:+919356666633" },
-    { icon: <Mail size={18} />, label: "hello@arigato.com", href: "mailto:hello@arigato.com" },
-    { icon: <Instagram size={18} />, label: "@arigatoevents", href: "https://www.instagram.com/arigatoevents/" },
-  ]
+    {
+      icon: <Phone size={18} />,
+      label: "+91 92847 49367",
+      href: "tel:+919284749367",
+    },
+    {
+      icon: <Phone size={18} />,
+      label: "+91 93566 66633",
+      href: "tel:+919356666633",
+    },
+    {
+      icon: <Mail size={18} />,
+      label: "hello@arigato.com",
+      href: "mailto:hello@arigato.com",
+    },
+    {
+      icon: <Instagram size={18} />,
+      label: "@arigatoevents",
+      href: "https://www.instagram.com/arigatoevents/",
+    },
+  ];
 
   return (
     <AnimatePresence>
@@ -71,7 +87,9 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
                       onClick={closeMenu}
                       className={cn(
                         "text-3xl font-serif transition-colors hover:text-primary block",
-                        location.pathname === link.path ? "text-primary" : "text-primary/70",
+                        location.pathname === link.path
+                          ? "text-primary"
+                          : "text-primary/70"
                       )}
                     >
                       {link.name}
@@ -114,7 +132,7 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
         </motion.div>
       )}
     </AnimatePresence>
-  )
-}
+  );
+};
 
-export default MobileMenu
+export default MobileMenu;

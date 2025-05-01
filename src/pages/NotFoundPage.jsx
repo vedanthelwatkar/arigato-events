@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
-import { Button } from "../components/Button"
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Button } from "../components/Button";
 
 const NotFoundPage = () => {
   return (
@@ -15,15 +15,19 @@ const NotFoundPage = () => {
           className="max-w-md text-center"
         >
           <h1 className="text-6xl font-serif text-primary mb-4">404</h1>
-          <h2 className="text-2xl font-medium mb-4 text-primary">Page Not Found</h2>
-          <p className="text-primary/70 mb-8">The page you are looking for doesn't exist or has been moved.</p>
+          <h2 className="text-2xl font-medium mb-4 text-primary">
+            Page Not Found
+          </h2>
+          <p className="text-primary/70 mb-8">
+            The page you are looking for doesn't exist or has been moved.
+          </p>
           <Button variant="default" size="lg" asChild>
             <Link to="/">Return Home</Link>
           </Button>
         </motion.div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;

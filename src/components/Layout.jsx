@@ -1,46 +1,49 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import Navbar from "./Navbar"
-import Footer from "./Footer"
-import MobileMenu from "./MobileMenu"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import MobileMenu from "./MobileMenu";
 
 const Layout = ({ children }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY
+      const offset = window.scrollY;
       if (offset > 50) {
-        setScrolled(true)
+        setScrolled(true);
       } else {
-        setScrolled(false)
+        setScrolled(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset"
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = "unset"
-    }
-  }, [isMenuOpen])
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrolled={scrolled} />
+      <Navbar
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        scrolled={scrolled}
+      />
       <MobileMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
 
       <motion.main
@@ -55,7 +58,7 @@ const Layout = ({ children }) => {
 
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

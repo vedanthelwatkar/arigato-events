@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Button } from "./Button"
-import { cn } from "../lib/utils"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "./Button";
+import { cn } from "../lib/utils";
 
 const ContactForm = ({ className }) => {
   const [formData, setFormData] = useState({
@@ -12,44 +12,41 @@ const ContactForm = ({ className }) => {
     phone: "",
     service: "",
     message: "",
-  })
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [formSuccess, setFormSuccess] = useState(false)
-  const [formError, setFormError] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formSuccess, setFormSuccess] = useState(false);
+  const [formError, setFormError] = useState(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
     setTimeout(() => {
-      setIsSubmitting(false)
-      setFormSuccess(true)
+      setIsSubmitting(false);
+      setFormSuccess(true);
 
-      // Reset form after success
       setFormData({
         name: "",
         email: "",
         phone: "",
         service: "",
         message: "",
-      })
+      });
 
-      // Reset success message after 5 seconds
       setTimeout(() => {
-        setFormSuccess(false)
-      }, 5000)
-    }, 1500)
-  }
+        setFormSuccess(false);
+      }, 5000);
+    }, 1500);
+  };
 
   return (
     <motion.div
@@ -61,14 +58,21 @@ const ContactForm = ({ className }) => {
     >
       {formSuccess ? (
         <div className="p-6 bg-primary/5 border border-primary/20 text-center">
-          <h3 className="text-lg font-medium mb-2 text-primary">Thank you for reaching out!</h3>
-          <p className="text-primary/70">We've received your message and will get back to you shortly.</p>
+          <h3 className="text-lg font-medium mb-2 text-primary">
+            Thank you for reaching out!
+          </h3>
+          <p className="text-primary/70">
+            We've received your message and will get back to you shortly.
+          </p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2 text-primary">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium mb-2 text-primary"
+              >
                 Full Name
               </label>
               <input
@@ -84,7 +88,10 @@ const ContactForm = ({ className }) => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2 text-primary">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium mb-2 text-primary"
+              >
                 Email Address
               </label>
               <input
@@ -102,7 +109,10 @@ const ContactForm = ({ className }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-2 text-primary">
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium mb-2 text-primary"
+              >
                 Phone Number
               </label>
               <input
@@ -117,7 +127,10 @@ const ContactForm = ({ className }) => {
             </div>
 
             <div>
-              <label htmlFor="service" className="block text-sm font-medium mb-2 text-primary">
+              <label
+                htmlFor="service"
+                className="block text-sm font-medium mb-2 text-primary"
+              >
                 Service of Interest
               </label>
               <select
@@ -130,10 +143,16 @@ const ContactForm = ({ className }) => {
                 <option value="">Select a service</option>
                 <option value="event-concierge">Event Concierge</option>
                 <option value="guest-logistics">Guest Logistics</option>
-                <option value="venue-curation">Destination Venue Curation</option>
+                <option value="venue-curation">
+                  Destination Venue Curation
+                </option>
                 <option value="hampers-gifting">Hampers & Gifting</option>
-                <option value="wedding-content">Wedding Content Creation</option>
-                <option value="entertainment">Entertainment & Artist Management</option>
+                <option value="wedding-content">
+                  Wedding Content Creation
+                </option>
+                <option value="entertainment">
+                  Entertainment & Artist Management
+                </option>
                 <option value="private-jets">Private Jets & Choppers</option>
                 <option value="other">Other</option>
               </select>
@@ -141,7 +160,10 @@ const ContactForm = ({ className }) => {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium mb-2 text-primary">
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium mb-2 text-primary"
+            >
               Your Message
             </label>
             <textarea
@@ -156,13 +178,19 @@ const ContactForm = ({ className }) => {
             />
           </div>
 
-          <Button type="submit" variant="default" size="lg" className="w-full md:w-auto" disabled={isSubmitting}>
+          <Button
+            type="submit"
+            variant="default"
+            size="lg"
+            className="w-full md:w-auto"
+            disabled={isSubmitting}
+          >
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
         </form>
       )}
     </motion.div>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;

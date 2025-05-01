@@ -48,7 +48,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
           </motion.div>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-12">
           {navLinks.map((link) => (
             <Link
@@ -66,7 +65,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
           <button
             onClick={toggleMenu}

@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
-import { Button } from "../components/Button"
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Button } from "../components/Button";
 
 const ErrorPage = () => {
   return (
@@ -15,9 +15,12 @@ const ErrorPage = () => {
           className="max-w-md text-center"
         >
           <h1 className="text-6xl font-serif text-primary mb-4">Oops!</h1>
-          <h2 className="text-2xl font-medium mb-4 text-primary">Something went wrong</h2>
+          <h2 className="text-2xl font-medium mb-4 text-primary">
+            Something went wrong
+          </h2>
           <p className="text-primary/70 mb-8">
-            We're experiencing some technical difficulties. Please try again later or contact our support team.
+            We're experiencing some technical difficulties. Please try again
+            later or contact our support team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="default" size="lg" asChild>
@@ -30,7 +33,7 @@ const ErrorPage = () => {
         </motion.div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;

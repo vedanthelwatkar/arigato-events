@@ -9,138 +9,6 @@ import ServiceCarousel from "../components/ServiceCarousel";
 import { Button } from "../components/Button";
 
 const HomePage = () => {
-  // Hero slides
-  const heroSlides = [
-    <div
-      key="slide1"
-      className="h-[90vh] pt-32 sm:pt-0 md:h-[80vh] relative flex items-center"
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/50 z-10" />
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('/wedding1.jpg')` }}
-      />
-      <div className="w-full px-6 relative z-20 flex flex-col md:flex-row items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="md:w-1/2 mb-8 md:mb-0 sm:px-20"
-        >
-          <h1 className="text-4xl md:text-6xl font-serif mb-4 text-primary">
-            Luxury Wedding Hospitality
-          </h1>
-          <p className="text-lg md:text-xl text-primary/70 mb-8">
-            Redefining guest experience through impeccable service, cultural
-            elegance, and heartfelt detail.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="default" size="lg" asChild>
-              <Link to="/services">Explore Services</Link>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <Link to="/contact">Contact Us</Link>
-            </Button>
-          </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="md:w-1/2 flex justify-center"
-        >
-          <img src="/logo.png" alt="Arigato" className="w-full max-w-[300px]" />
-        </motion.div>
-      </div>
-    </div>,
-
-    <div
-      key="slide2"
-      className="h-[90vh] pt-32 sm:pt-0 md:h-[80vh] relative flex items-center"
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/50 z-10" />
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('/wedding2.jpg')` }}
-      />
-      <div className="w-full px-6 relative z-20 flex flex-col md:flex-row items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="md:w-1/2 mb-8 md:mb-0 sm:px-20"
-        >
-          <h1 className="text-4xl md:text-6xl font-serif mb-4 text-primary">
-            Curated Luxury Experiences
-          </h1>
-          <p className="text-lg md:text-xl text-primary/70 mb-8">
-            From private jets to exclusive venues, we orchestrate perfection in
-            every detail.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="default" size="lg" asChild>
-              <Link to="/services">Our Services</Link>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <Link to="/about">About Us</Link>
-            </Button>
-          </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="md:w-1/2 flex justify-center"
-        >
-          <img src="/logo.png" alt="Arigato" className="w-full max-w-[300px]" />
-        </motion.div>
-      </div>
-    </div>,
-
-    <div
-      key="slide3"
-      className="h-[90vh] pt-32 sm:pt-0 md:h-[80vh] relative flex items-center"
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/50 z-10" />
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('/wedding3.jpg')` }}
-      />
-      <div className="w-full px-6 relative z-20 flex flex-col md:flex-row items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="md:w-1/2 mb-8 md:mb-0 sm:px-20"
-        >
-          <h1 className="text-4xl md:text-6xl font-serif mb-4 text-primary">
-            Exceptional Hospitality
-          </h1>
-          <p className="text-lg md:text-xl text-primary/70 mb-8">
-            Creating unforgettable moments with attention to every detail.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="default" size="lg" asChild>
-              <Link to="/memberships">Our Memberships</Link>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <Link to="/contact">Get in Touch</Link>
-            </Button>
-          </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="md:w-1/2 flex justify-center"
-        >
-          <img src="/logo.png" alt="Arigato" className="w-full max-w-[300px]" />
-        </motion.div>
-      </div>
-    </div>,
-  ];
-
-  // Client logos
   const clients = [
     { name: "Luxury Hotel", logo: "/client1.jpg" },
     { name: "Premium Resort", logo: "/client2.jpg" },
@@ -148,7 +16,6 @@ const HomePage = () => {
     { name: "Exclusive Venues", logo: "/client4.jpg" },
   ];
 
-  // Featured services
   const featuredServices = [
     {
       title: "Event Concierge",
@@ -180,7 +47,6 @@ const HomePage = () => {
     },
   ];
 
-  // Membership plans
   const membershipPlans = [
     {
       title: "HNI Families",
@@ -197,12 +63,16 @@ const HomePage = () => {
 
   return (
     <>
-      {/* Hero Section */}
       <section className="relative">
-        <Carousel slides={heroSlides} autoPlay={true} interval={300000} />
+        <Carousel
+          autoPlay={true}
+          interval={5000}
+          showArrows={true}
+          showDots={true}
+          className="w-full"
+        />
       </section>
 
-      {/* Clients Section */}
       <section className="py-16 bg-primary/5">
         <div className="w-full px-6 flex flex-col items-center">
           <motion.div
@@ -241,7 +111,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Services Preview */}
       <section className="py-16 md:py-24">
         <div className="w-full flex flex-col items-center">
           <motion.div
@@ -292,7 +161,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* About Us Snippet */}
       <section className="py-16 md:py-24 bg-primary/5">
         <div className="w-full px-6 flex justify-center">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl">
@@ -338,7 +206,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Membership Teaser */}
       <section className="py-16 md:py-24">
         <div className="w-full px-6 flex flex-col items-center">
           <motion.div
@@ -402,7 +269,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Contact CTA */}
       <section className="py-16 md:py-24 bg-primary text-background">
         <div className="w-full px-6 flex justify-center">
           <div className="text-center max-w-3xl">

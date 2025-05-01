@@ -1,80 +1,80 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect, useRef } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight } from "react-feather"
-import { cn } from "../lib/utils"
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "react-feather";
+import { cn } from "../lib/utils";
 
 const ServiceCarousel = ({ children, className }) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-  const [isTablet, setIsTablet] = useState(false)
-  const [isAnimating, setIsAnimating] = useState(false)
-  const childrenArray = React.Children.toArray(children)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const childrenArray = React.Children.toArray(children);
 
-  // Determine items per view based on screen size
   const getItemsPerView = () => {
-    if (isMobile) return 1
-    if (isTablet) return 2
-    return 3
-  }
+    if (isMobile) return 1;
+    if (isTablet) return 2;
+    return 3;
+  };
 
-  const itemsPerView = getItemsPerView()
-  const totalSlides = Math.max(1, Math.ceil(childrenArray.length / itemsPerView))
+  const itemsPerView = getItemsPerView();
+  const totalSlides = Math.max(
+    1,
+    Math.ceil(childrenArray.length / itemsPerView)
+  );
 
-  // Check screen size
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 640)
-      setIsTablet(window.innerWidth >= 640 && window.innerWidth < 1024)
-    }
+      setIsMobile(window.innerWidth < 640);
+      setIsTablet(window.innerWidth >= 640 && window.innerWidth < 1024);
+    };
 
-    checkScreenSize()
-    window.addEventListener("resize", checkScreenSize)
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
 
     return () => {
-      window.removeEventListener("resize", checkScreenSize)
-    }
-  }, [])
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
 
   const goToNext = () => {
-    if (isAnimating || totalSlides <= 1) return
-    setIsAnimating(true)
-    setCurrentIndex((prev) => (prev + 1) % totalSlides)
-  }
+    if (isAnimating || totalSlides <= 1) return;
+    setIsAnimating(true);
+    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  };
 
   const goToPrev = () => {
-    if (isAnimating || totalSlides <= 1) return
-    setIsAnimating(true)
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides)
-  }
+    if (isAnimating || totalSlides <= 1) return;
+    setIsAnimating(true);
+    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
 
   const goToSlide = (index) => {
-    if (isAnimating || index === currentIndex) return
-    setIsAnimating(true)
-    setCurrentIndex(index)
-  }
+    if (isAnimating || index === currentIndex) return;
+    setIsAnimating(true);
+    setCurrentIndex(index);
+  };
 
-  // Touch handlers for mobile swipe
-  const touchStartX = useRef(0)
-  const touchEndX = useRef(0)
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX
-  }
+    touchStartX.current = e.touches[0].clientX;
+  };
 
   const handleTouchMove = (e) => {
-    touchEndX.current = e.touches[0].clientX
-  }
+    touchEndX.current = e.touches[0].clientX;
+  };
 
   const handleTouchEnd = () => {
-    const touchDiff = touchStartX.current - touchEndX.current
+    const touchDiff = touchStartX.current - touchEndX.current;
     if (touchDiff > 75) {
-      goToNext()
+      goToNext();
     } else if (touchDiff < -75) {
-      goToPrev()
+      goToPrev();
     }
-  }
+  };
 
   return (
     <div
@@ -84,7 +84,11 @@ const ServiceCarousel = ({ children, className }) => {
       onTouchEnd={handleTouchEnd}
     >
       <div className="overflow-hidden">
-        <AnimatePresence initial={false} mode="wait" onExitComplete={() => setIsAnimating(false)}>
+        <AnimatePresence
+          initial={false}
+          mode="wait"
+          onExitComplete={() => setIsAnimating(false)}
+        >
           <motion.div
             key={currentIndex}
             initial={{ opacity: 0, x: 50 }}
@@ -94,13 +98,20 @@ const ServiceCarousel = ({ children, className }) => {
             className="w-full"
           >
             <div
-              className={`grid grid-cols-1 ${isTablet ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3"} gap-6 px-4 md:px-6`}
+              className={`grid grid-cols-1 ${
+                isTablet ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3"
+              } gap-6 px-4 md:px-6`}
             >
-              {childrenArray.slice(currentIndex * itemsPerView, (currentIndex + 1) * itemsPerView).map((child, i) => (
-                <div key={i} className="w-full">
-                  {child}
-                </div>
-              ))}
+              {childrenArray
+                .slice(
+                  currentIndex * itemsPerView,
+                  (currentIndex + 1) * itemsPerView
+                )
+                .map((child, i) => (
+                  <div key={i} className="w-full">
+                    {child}
+                  </div>
+                ))}
             </div>
           </motion.div>
         </AnimatePresence>
@@ -125,7 +136,9 @@ const ServiceCarousel = ({ children, className }) => {
                   onClick={() => goToSlide(index)}
                   className={cn(
                     "w-2 h-2 rounded-full transition-all duration-300",
-                    currentIndex === index ? "bg-primary w-6" : "bg-primary/30 hover:bg-primary/50",
+                    currentIndex === index
+                      ? "bg-primary w-6"
+                      : "bg-primary/30 hover:bg-primary/50"
                   )}
                   aria-label={`Go to slide ${index + 1}`}
                 />
@@ -144,7 +157,7 @@ const ServiceCarousel = ({ children, className }) => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ServiceCarousel
+export default ServiceCarousel;

@@ -33,7 +33,6 @@ const AboutPage = () => {
     },
   ];
 
-  // Gallery images
   const galleryImages = [
     {
       src: "/wedding-luxury-setup-arigatoevents.jpg",
@@ -123,7 +122,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
       <section className="py-16 md:py-24">
         <div className="w-full px-6 flex flex-col items-center">
           <motion.div
@@ -202,7 +200,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Process Section */}
       <section className="py-16 md:py-24">
         <div className="w-full px-6 flex flex-col items-center">
           <motion.div

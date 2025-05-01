@@ -6,9 +6,9 @@ import App from "./App";
 
 const Root = import.meta.env.DEV ? (
   <StrictMode>
-    {/* <ErrorBoundary> */}
-    <App />
-    {/* </ErrorBoundary> */}
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </StrictMode>
 ) : (
   <ErrorBoundary>

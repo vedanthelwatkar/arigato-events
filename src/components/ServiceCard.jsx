@@ -3,14 +3,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronUp } from "react-feather";
-import { Link } from "react-router-dom";
 import { cn } from "../lib/utils";
 
 const ServiceCard = ({
   title,
   description,
   icon,
-  link = "/services",
   className,
   index = 0,
   fullDescription,
@@ -75,12 +73,6 @@ const ServiceCard = ({
               <p className="text-sm text-primary/70 mb-4">
                 {fullDescription || description}
               </p>
-              <Link
-                to={link}
-                className="text-sm font-medium text-primary hover:underline"
-              >
-                View full details
-              </Link>
             </div>
           </motion.div>
         )}
