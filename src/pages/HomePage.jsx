@@ -2,7 +2,16 @@
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Calendar, MapPin, Camera, Users } from "react-feather";
+import {
+  ArrowRight,
+  Calendar,
+  MapPin,
+  Camera,
+  Users,
+  Briefcase,
+  Gift,
+  Globe,
+} from "react-feather";
 import Carousel from "../components/Carousel";
 import ServiceCard from "../components/ServiceCard";
 import ServiceCarousel from "../components/ServiceCarousel";
@@ -20,30 +29,50 @@ const HomePage = () => {
     {
       title: "Event Concierge",
       description:
-        "Comprehensive event planning and management for exclusive gatherings and celebrations.",
+        "End-to-end event planning and management services for private and corporate occasions.",
       icon: <Calendar size={24} />,
-      link: "/services/event-concierge",
     },
     {
       title: "Guest Logistics",
       description:
         "Seamless transportation, accommodation, and itinerary planning for your guests.",
-      icon: <Users size={24} />,
-      link: "/services/guest-logistics",
+      icon: <Briefcase size={24} />,
     },
     {
       title: "Destination Venue Curation",
       description:
-        "Access to the world's most exclusive and unique venues for your special occasions.",
+        "Access to exclusive venues worldwide, perfectly matched to your event requirements.",
       icon: <MapPin size={24} />,
-      link: "/services/venue-curation",
     },
     {
       title: "Wedding Content Creation",
       description:
         "Premium photography and videography services to capture your most precious moments.",
       icon: <Camera size={24} />,
-      link: "/services/content-creation",
+    },
+    {
+      title: "RSVP Management",
+      description:
+        "Comprehensive guest list management and RSVP tracking for your exclusive events.",
+      icon: <Users size={24} />,
+    },
+    {
+      title: "Wedding Private Jets & Choppers",
+      description:
+        "Luxury private aviation services for seamless travel experiences.",
+      icon: <Globe size={24} />,
+    },
+    {
+      title: "Backstage & Showrun",
+      description:
+        "Professional event production and backstage management services.",
+      icon: <Briefcase size={24} />,
+    },
+    {
+      title: "Hampers & Gifting",
+      description:
+        "Bespoke luxury gift hampers and personalized presents for special occasions.",
+      icon: <Gift size={24} />,
     },
   ];
 
@@ -137,8 +166,8 @@ const HomePage = () => {
                   title={service.title}
                   description={service.description}
                   icon={service.icon}
-                  link={service.link}
                   index={index}
+                  homePage={true}
                 />
               ))}
             </ServiceCarousel>
