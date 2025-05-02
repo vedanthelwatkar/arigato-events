@@ -14,7 +14,6 @@ const heroSlidesData = [
       "Redefining guest experience through impeccable service, cultural elegance, and heartfelt detail.",
     primaryButton: { text: "Explore Services", link: "/services" },
     secondaryButton: { text: "Contact Us", link: "/contact" },
-    backgroundImage: "/wedding1.jpg",
   },
   {
     title: "Curated Luxury Experiences",
@@ -22,7 +21,6 @@ const heroSlidesData = [
       "From private jets to exclusive venues, we orchestrate perfection in every detail.",
     primaryButton: { text: "Our Services", link: "/services" },
     secondaryButton: { text: "About Us", link: "/about" },
-    backgroundImage: "/wedding2.jpg",
   },
   {
     title: "Get Exceptional Hospitality",
@@ -30,7 +28,6 @@ const heroSlidesData = [
       "Creating unforgettable moments with attention to every detail.",
     primaryButton: { text: "Our Memberships", link: "/memberships" },
     secondaryButton: { text: "Get in Touch", link: "/contact" },
-    backgroundImage: "/wedding3.jpg",
   },
 ];
 
@@ -179,12 +176,7 @@ const Carousel = ({
             className="absolute inset-0 z-0"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/50 z-10" />
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url('${currentSlide.backgroundImage}')`,
-              }}
-            />
+            <div className="absolute inset-0 bg-cover bg-center" />
           </motion.div>
         ) : (
           <div className="absolute inset-0 z-0">
