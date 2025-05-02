@@ -18,7 +18,10 @@ const ContactPage = () => {
       icon: <Mail size={24} />,
       title: "Email",
       details: [
-        { text: "hello@arigato.com", link: "mailto:hello@arigato.com" },
+        {
+          text: "events@arigatoevents.com",
+          link: "mailto:events@arigatoevents.com",
+        },
       ],
     },
     {
