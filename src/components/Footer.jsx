@@ -91,7 +91,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/services/event-concierge"
+                  to="/services"
                   className="text-sm text-primary/70 hover:text-primary transition-colors"
                 >
                   Event Concierge
@@ -99,7 +99,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/venue-curation"
+                  to="/services"
                   className="text-sm text-primary/70 hover:text-primary transition-colors"
                 >
                   Destination Venue Curation
@@ -107,7 +107,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/content-creation"
+                  to="/services"
                   className="text-sm text-primary/70 hover:text-primary transition-colors"
                 >
                   Wedding Content Creation
@@ -115,7 +115,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/private-jets"
+                  to="/services"
                   className="text-sm text-primary/70 hover:text-primary transition-colors"
                 >
                   Private Jets & Choppers
