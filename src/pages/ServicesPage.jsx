@@ -26,7 +26,7 @@ const ServicesPage = () => {
       fullDescription:
         "Our RSVP Management service provides a seamless experience for tracking and managing your guest list. We handle all communication with your guests, ensuring timely responses and accurate attendance information. Our digital platform allows you to view real-time updates and make adjustments as needed.",
       icon: <Users size={24} />,
-      category: "Event Planning",
+      category: "Event Management & Hospitality",
       image: "/service-rsvp-arigatoevents.jpg",
     },
     {
@@ -36,7 +36,7 @@ const ServicesPage = () => {
       fullDescription:
         "Our Event Concierge service offers comprehensive planning and execution for your special events. From initial concept to final details, our team handles every aspect with precision and elegance. We coordinate with vendors, manage timelines, and ensure flawless execution so you can focus on enjoying your special occasion.",
       icon: <Calendar size={24} />,
-      category: "Event Planning",
+      category: "Event Management & Hospitality",
       image: "/service-event-arigatoevents.jpg",
     },
     {
@@ -66,7 +66,7 @@ const ServicesPage = () => {
       fullDescription:
         "Our Backstage & Showrun service ensures your event production runs smoothly from start to finish. Our experienced team manages all technical aspects, coordinates performers, and handles timing with precision. We work behind the scenes to create seamless transitions and flawless execution of your event program.",
       icon: <Briefcase size={24} />,
-      category: "Event Planning",
+      category: "Event Management & Hospitality",
       image: "/service-backstage.jpg",
     },
     {
@@ -106,7 +106,7 @@ const ServicesPage = () => {
       fullDescription:
         "Our F&B & Bar Management service creates exceptional culinary experiences for your event. We work with top chefs and mixologists to design custom menus and signature cocktails that complement your event theme. Our team manages all aspects of food and beverage service, ensuring impeccable presentation and service throughout your event.",
       icon: <Coffee size={24} />,
-      category: "Event Planning",
+      category: "Event Management & Hospitality",
       image: "/service-fb.jpg",
     },
     {
@@ -126,7 +126,7 @@ const ServicesPage = () => {
       fullDescription:
         "Our Destination Venue Curation service helps you discover and secure the perfect location for your event. With access to exclusive properties worldwide, we match venues to your specific vision and requirements. Our team handles all negotiations, contracts, and logistics to ensure your chosen venue is prepared exactly to your specifications.",
       icon: <MapPin size={24} />,
-      category: "Event Planning",
+      category: "Event Management & Hospitality",
       image: "/service-venue.jpg",
     },
   ];

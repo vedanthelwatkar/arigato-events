@@ -189,10 +189,7 @@ const Carousel = ({
         ) : (
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/50 z-10" />
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url('/wedding1.jpg')` }}
-            />
+            <div className="absolute inset-0 bg-cover bg-center" />
           </div>
         )}
       </AnimatePresence>
