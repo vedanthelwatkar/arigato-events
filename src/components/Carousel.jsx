@@ -244,7 +244,7 @@ const Carousel = ({
             <img
               src="/logo.png"
               alt="Arigato"
-              className="w-full max-w-[300px]"
+              className="w-full max-w-[400px]"
             />
           </motion.div>
         </div>

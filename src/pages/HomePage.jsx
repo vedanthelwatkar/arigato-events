@@ -108,7 +108,7 @@ const HomePage = () => {
             <h2 className="text-2xl md:text-3xl font-serif mb-2 text-primary">
               Trusted By
             </h2>
-            <p className="text-primary/70">
+            <p className="text-lg text-primary/70">
               Partnering with the most prestigious brands and venues
             </p>
           </motion.div>
@@ -129,7 +129,7 @@ const HomePage = () => {
             <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">
               Our Services
             </h2>
-            <p className="text-primary/70">
+            <p className="text-lg text-primary/70">
               Discover our premium concierge services designed to elevate your
               wedding experience and create unforgettable moments.
             </p>
@@ -179,12 +179,12 @@ const HomePage = () => {
               <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">
                 About Arigato
               </h2>
-              <p className="text-primary/70 mb-6">
+              <p className="text-lg text-primary/70 mb-6">
                 ARIGATO is a luxury wedding hospitality brand redefining guest
                 experience through impeccable service, cultural elegance, and
                 heartfelt detail.
               </p>
-              <p className="text-primary/70 mb-6">
+              <p className="text-lg text-primary/70 mb-6">
                 Inspired by the Japanese spirit of omotenashi—the art of
                 thoughtful hospitality—we specialize in welcoming your guests
                 with warmth, care, and curated experiences that reflect the
@@ -224,7 +224,7 @@ const HomePage = () => {
             <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">
               Membership Plans
             </h2>
-            <p className="text-primary/70">
+            <p className="text-lg text-primary/70">
               Exclusive membership options tailored to different client needs.
             </p>
           </motion.div>
@@ -292,7 +292,7 @@ const HomePage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="mb-8 opacity-90"
+              className="mb-8 opacity-90 text-lg"
             >
               Contact us today to discuss how we can create bespoke luxury
               experiences tailored to your needs.

@@ -2,20 +2,22 @@ import React, { useRef, useEffect } from "react";
 import { motion, useAnimation, useAnimationFrame } from "framer-motion";
 
 const logos = [
-  "/logos/being-human.png",
-  "/logos/muthoot-group.png",
-  "/logos/punj-lloyd.png",
-  "/logos/amp-motors.png",
-  "/logos/sabyasachi.png",
-  "/logos/anju-modi.png",
-  "/logos/rahul-mishra.png",
-  "/logos/suneet-varma.png",
-  "/logos/blackberrys.png",
-  "/logos/sanjay-ghodawat.webp",
-  "/logos/somany.png",
-  "/logos/dyp-group.png",
-  "/logos/dollar-group.png",
-  "/logos/rockland-hospitals.png",
+  "/logos/being-human-arigatoevents.png",
+  "/logos/muthoot-group-arigatoevents.png",
+  "/logos/punj-lloyd-arigatoevents.png",
+  "/logos/amp-motors-arigatoevents.png",
+  "/logos/sabyasachi-arigatoevents.jpg",
+  "/logos/anju-modi-arigatoevents.png",
+  "/logos/rahul-mishra-arigatoevents.png",
+  "/logos/suneet-varma-arigatoevents.png",
+  "/logos/blackberrys-arigatoevents.png",
+  "/logos/sanjay-ghodawat-arigatoevents.webp",
+  "/logos/somany-arigatoevents.png",
+  "/logos/dyp-group-arigatoevents.png",
+  "/logos/dollar-group-arigatoevents.png",
+  "/logos/rockland-hospitals-arigatoevents.png",
+  "/logos/yuvraj-and-hazel-arigatoevents.png",
+  "/logos/manish-malhotra-arigatoevents.png",
 ];
 
 const InfiniteCarousel = () => {

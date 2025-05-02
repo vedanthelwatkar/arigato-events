@@ -54,7 +54,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
               key={link.path}
               to={link.path}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
+                "text-md font-bold transition-colors hover:text-primary",
                 location.pathname === link.path
                   ? "text-primary"
                   : "text-primary/70"

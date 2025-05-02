@@ -82,9 +82,10 @@ const AboutPage = () => {
                 Our Story
               </h2>
               <p className="text-primary/70 mb-6">
-                ARIGATO is a luxury wedding hospitality brand redefining guest
-                experience through impeccable service, cultural elegance, and
-                heartfelt detail.
+                <span className="font-extrabold text-lg">ARIGATO</span> is a
+                luxury wedding hospitality brand redefining guest experience
+                through impeccable service, cultural elegance, and heartfelt
+                detail.
               </p>
               <p className="text-primary/70 mb-6">
                 Inspired by the Japanese spirit of omotenashi—the art of
@@ -92,8 +93,9 @@ const AboutPage = () => {
                 with warmth, care, and curated experiences that reflect the
                 beauty of your celebration. From bespoke welcome lounges and
                 itinerary planning to seamless guest coordination and on-site
-                concierge, ARIGATO ensures every moment feels personal,
-                polished, and profoundly memorable.
+                concierge,{" "}
+                <span className="font-extrabold text-lg">ARIGATO</span> ensures
+                every moment feels personal, polished, and profoundly memorable.
               </p>
               <p className="text-primary/70">
                 Our lucky mascot, Maneki Neko, symbolizes good fortune and
@@ -292,7 +294,7 @@ const AboutPage = () => {
               className="mb-8 opacity-90"
             >
               Experience the unparalleled service and attention to detail that
-              defines Arigato.
+              defines <span className="font-extrabold text-lg">ARIGATO</span>.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

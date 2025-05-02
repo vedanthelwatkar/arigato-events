@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./Button";
 import { cn } from "../lib/utils";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = ({ className }) => {
   const [formData, setFormData] = useState({
@@ -26,26 +27,58 @@ const ContactForm = ({ className }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setFormSuccess(true);
+    try {
+      // Replace with your EmailJS service ID, template ID, and public key
+      const result = await emailjs.send(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          service: formData.service || "General Contact",
+          message: formData.message,
+        },
+        "YOUR_PUBLIC_KEY"
+      );
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
-      });
+      if (result.text === "OK") {
+        setFormSuccess(true);
 
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+
+        setTimeout(() => {
+          setFormSuccess(false);
+        }, 5000);
+      } else {
+        setFormError(
+          "There was a problem submitting your form. Please try again."
+        );
+        setTimeout(() => {
+          setFormError(null);
+        }, 5000);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setFormError(
+        "There was a problem connecting to our server. Please try again later."
+      );
       setTimeout(() => {
-        setFormSuccess(false);
+        setFormError(null);
       }, 5000);
-    }, 1500);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -177,6 +210,12 @@ const ContactForm = ({ className }) => {
               placeholder="Tell us about your requirements..."
             />
           </div>
+
+          {formError && (
+            <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-sm">
+              {formError}
+            </div>
+          )}
 
           <Button
             type="submit"

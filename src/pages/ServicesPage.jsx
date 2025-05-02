@@ -106,7 +106,7 @@ const ServicesPage = () => {
       fullDescription:
         "Our F&B & Bar Management service creates exceptional culinary experiences for your event. We work with top chefs and mixologists to design custom menus and signature cocktails that complement your event theme. Our team manages all aspects of food and beverage service, ensuring impeccable presentation and service throughout your event.",
       icon: <Coffee size={24} />,
-      category: "Hospitality",
+      category: "Event Planning",
       image: "/service-fb.jpg",
     },
     {

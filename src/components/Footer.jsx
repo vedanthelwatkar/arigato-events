@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="w-full px-6 py-16 flex flex-col">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <img src="/logo.png" alt="Arigato" className="h-12 mb-4" />
+            <img src="/logo.png" alt="Arigato" className="h-32 mb-4" />
             <p className="text-sm text-primary/70 mb-6 max-w-xs">
               Gracious hospitality. Effortless luxury. Unforgettable
               impressions.
@@ -21,19 +21,19 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-primary/70 hover:text-primary transition-colors"
               >
-                <Instagram size={18} />
+                <Instagram size={30} />
               </a>
               <a
                 href="mailto:hello@arigato.com"
                 className="text-primary/70 hover:text-primary transition-colors"
               >
-                <Mail size={18} />
+                <Mail size={30} />
               </a>
               <a
                 href="tel:+919284749367"
                 className="text-primary/70 hover:text-primary transition-colors"
               >
-                <Phone size={18} />
+                <Phone size={30} />
               </a>
             </div>
           </div>
@@ -147,22 +147,8 @@ const Footer = () => {
 
         <div className="mt-12 pt-6 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-xs text-primary/70">
-            &copy; {currentYear} Arigato Luxury Concierge. All rights reserved.
+            &copy; {currentYear} Arigato Events. All rights reserved.
           </p>
-          <div className="mt-4 md:mt-0 flex space-x-6">
-            <Link
-              to="/privacy"
-              className="text-xs text-primary/70 hover:text-primary transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              to="/terms"
-              className="text-xs text-primary/70 hover:text-primary transition-colors"
-            >
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
