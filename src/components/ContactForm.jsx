@@ -32,10 +32,9 @@ const ContactForm = ({ className }) => {
     setIsSubmitting(true);
 
     try {
-      // Replace with your EmailJS service ID, template ID, and public key
       const result = await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -43,7 +42,7 @@ const ContactForm = ({ className }) => {
           service: formData.service || "General Contact",
           message: formData.message,
         },
-        "YOUR_PUBLIC_KEY"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       if (result.text === "OK") {
