@@ -86,7 +86,7 @@ const ServiceCarousel = ({ children, className }) => {
       <div className="overflow-hidden">
         <AnimatePresence
           initial={false}
-          mode="wait"
+          mode="popLayout"
           onExitComplete={() => setIsAnimating(false)}
         >
           <motion.div
