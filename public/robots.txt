@@ -1,0 +1,7 @@
+# START ARIGATOEVENTS
+
+user-agent: *
+
+Sitemap: https://arigatoevents.com/sitemap_index.xml
+
+# END ARIGATOEVENTS
