@@ -9,6 +9,7 @@ import { cn } from "../lib/utils";
 const Navbar = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
   const location = useLocation();
   const [mounted, setMounted] = useState(false);
+  console.log('location.pathname: ', location.pathname) 
 
   useEffect(() => {
     setMounted(true);
@@ -55,9 +56,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
               to={link.path}
               className={cn(
                 "text-md font-bold transition-colors hover:text-primary",
-                location.pathname === link.path
-                  ? "text-primary"
-                  : "text-primary/70"
+                location.pathname.includes("content-creation") && !scrolled  || location.pathname.includes("private-jets") && !scrolled ? 
+                 "text-white "
+                : location.pathname === link.path
+                ? "text-primary "
+                : "text-primary/70"
+                
               )}
             >
               {link.name}

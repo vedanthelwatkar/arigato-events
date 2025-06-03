@@ -21,6 +21,8 @@ import ErrorPage from "./pages/ErrorPage";
 import WhatsAppButton from "./components/WhatsAppButton";
 import "./index.css";
 import ErrorBoundary from "./components/ErrorBoundary";
+import WeddingContentCreationPage from "./pages/WeddingContentCreationPage";
+import PrivateJetsPage from "./pages/PrivateJetsPage";
 
 const ScrollToTop = ({ children }) => {
   const location = useLocation();
@@ -46,6 +48,8 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/services" element={<ServicesPage />} />
+                <Route path="/services/content-creation" element={<WeddingContentCreationPage />} />
+                <Route path="/services/private-jets" element={<PrivateJetsPage />} />
                 <Route path="/services/:id" element={<ServiceDetailPage />} />
                 <Route path="/memberships" element={<MembershipsPage />} />
                 <Route path="/contact" element={<ContactPage />} />

@@ -58,6 +58,7 @@ const ServicesPage = () => {
       icon: <Globe size={24} />,
       category: "Transportation",
       image: "/service-jets.jpg",
+      link:"/services/private-jets"
     },
     {
       title: "Backstage & Showrun",
@@ -88,6 +89,7 @@ const ServicesPage = () => {
       icon: <Camera size={24} />,
       category: "Media & Entertainment",
       image: "/service-content.jpg",
+      link:"/services/content-creation"
     },
     {
       title: "Entertainment & Artist Management",
@@ -189,6 +191,8 @@ const ServicesPage = () => {
                   icon={service.icon}
                   image={service.image}
                   index={index}
+                  homePage={service.title == "Wedding Private Jets & Choppers" || service.title == "Wedding Content Creation" ? true :false}
+                  link={service.link}
                 />
               ))}
             </div>

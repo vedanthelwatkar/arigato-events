@@ -107,7 +107,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services"
+                  to="/services/content-creation"
                   className="text-sm text-primary/70 hover:text-primary transition-colors"
                 >
                   Wedding Content Creation
@@ -115,7 +115,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services"
+                  to="services/private-jets"
                   className="text-sm text-primary/70 hover:text-primary transition-colors"
                 >
                   Private Jets & Choppers

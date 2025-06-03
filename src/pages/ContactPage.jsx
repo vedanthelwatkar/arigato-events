@@ -82,7 +82,7 @@ const ContactPage = () => {
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={{ duration: 0.5}}
                 className="text-primary/70 mb-8"
               >
                 Fill out the form below, and one of our luxury concierge
@@ -120,7 +120,6 @@ const ContactPage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-                    viewport={{ once: true }}
                     className="p-6 border border-primary/10"
                   >
                     <div className="text-primary mb-4">{item.icon}</div>
