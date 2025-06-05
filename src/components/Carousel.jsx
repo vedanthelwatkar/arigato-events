@@ -186,7 +186,7 @@ const Carousel = ({
         )}
       </AnimatePresence>
 
-      <div className="h-[100dvh] pt-20 sm:pt-0 md:h-[80vh] relative flex items-center">
+      <div className="h-[800px] pt-20 sm:pt-0 md:h-[80vh] relative flex items-center">
         <div className="w-full px-6 relative z-20 flex flex-col md:flex-row items-center">
           <AnimatePresence
             initial={false}
