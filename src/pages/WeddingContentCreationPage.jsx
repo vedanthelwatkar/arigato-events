@@ -1,120 +1,167 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
-import { Play, Camera, Film, Image, Award, ChevronRight, ChevronLeft } from "react-feather"
-import { Button } from "../components/Button"
-import YouTubePlayer from "@/components/YoutubeVideo"
-import { useNavigate } from "react-router-dom"
+import { useState, useRef, useEffect } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import {
+  Play,
+  Camera,
+  Film,
+  Image,
+  Award,
+  ChevronRight,
+  ChevronLeft,
+} from "react-feather";
+import { Button } from "../components/Button";
+import YouTubePlayer from "@/components/YoutubeVideo";
+import { useNavigate } from "react-router-dom";
+
+const portfolioItems = [
+  {
+    id: 1,
+    title: "Colorful Garden Setup",
+    description:
+      "Vibrant outdoor celebration with decorative carousel and floral arrangements",
+    image: "/portfolio/arigatoevents-1.jpg",
+  },
+  {
+    id: 2,
+    title: "Garden Celebration",
+    description: "Intimate gathering in a lush botanical garden",
+    image: "/portfolio/arigatoevents-2.jpg",
+  },
+  {
+    id: 3,
+    title: "Lakeside Boat Wedding",
+    description:
+      "Unique waterfront ceremony with decorated boat and scenic lake views",
+    image: "/portfolio/arigatoevents-3.jpg",
+  },
+  {
+    id: 4,
+    title: "Grand Fireworks Display",
+    description:
+      "Spectacular wedding finale with dramatic fireworks and traditional groom attire",
+    image: "/portfolio/arigatoevents-4.jpg",
+  },
+  {
+    id: 5,
+    title: "Floral Archway Ceremony",
+    description:
+      "Romantic wedding setup with elaborate white flower arch and bride portrait",
+    image: "/portfolio/arigatoevents-5.jpg",
+  },
+  {
+    id: 6,
+    title: "Golden Hall Reception",
+    description:
+      "Luxurious indoor celebration with golden decorations and elegant lighting",
+    image: "/portfolio/arigatoevents-6.jpeg",
+  },
+  {
+    id: 7,
+    title: "Modern White Venue",
+    description:
+      "Contemporary event space with geometric white design and artistic lighting",
+    image: "/portfolio/arigatoevents-7.jpeg",
+  },
+  {
+    id: 8,
+    title: "Mountain View Dining",
+    description:
+      "Scenic outdoor reception with mountain backdrop and rustic wooden setup",
+    image: "/portfolio/arigatoevents-8.jpg",
+  },
+];
+
+const videoShowcases = [
+  {
+    id: "XQVJgjnmgdg",
+    title: "Wedding Setup Highlights",
+    thumbnail: "/thumbnails/arigatoevents-grand-hayat-wedding.jpg",
+  },
+  {
+    id: "HAMve3fhVvI",
+    title: "Wedding Hall Decoration",
+    thumbnail: "/thumbnails/arigatoevents-kochi.jpg",
+  },
+  {
+    id: "8A_-ShJRnMg",
+    title: "Garden Celebration Highlights",
+    thumbnail: "/thumbnails/arigatoevents-lights-camera-action.jpg",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "The team captured moments we didn't even know happened. Every time we look at our wedding album, we relive the day all over again.",
+    author: "Priya & Rahul",
+    location: "Mumbai",
+  },
+  {
+    quote:
+      "The cinematic quality of our wedding film exceeded all expectations. It's like watching a movie where we're the stars.",
+    author: "Ananya & Vikram",
+    location: "Delhi",
+  },
+  {
+    quote:
+      "Their drone footage captured our venue in ways we never imagined possible. Truly breathtaking.",
+    author: "Meera & Arjun",
+    location: "Udaipur",
+  },
+];
 
 const WeddingContentCreationPage = () => {
-  const [activeTab, setActiveTab] = useState("photography")
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [activeVideoId, setActiveVideoId] = useState("XQVJgjnmgdg") // Default YouTube video ID
-  const containerRef = useRef(null)
-  const showcaseRef = useRef(null)
-  const navigate = useNavigate()
+  const [activeTab, setActiveTab] = useState("photography");
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeVideoId, setActiveVideoId] = useState("XQVJgjnmgdg"); // Default YouTube video ID
+  const containerRef = useRef(null);
+  const showcaseRef = useRef(null);
+  const navigate = useNavigate();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
-  })
+  });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8])
-  const y = useTransform(scrollYProgress, [0, 0.2], [0, -50])
-
-  const portfolioItems = [
-    {
-      id: 1,
-      title: "Beachside Wedding",
-      description: "Elegant ceremony at sunset on a private beach",
-      image: "/elegant-beach.jpg",
-    },
-    {
-      id: 2,
-      title: "Garden Celebration",
-      description: "Intimate gathering in a lush botanical garden",
-      image: "/botanical-garden.jpg",
-    },
-    {
-      id: 3,
-      title: "Palace Wedding",
-      description: "Luxurious ceremony in a historic palace",
-      image: "/historic-palace.jpg",
-    },
-    {
-      id: 4,
-      title: "Mountain Retreat",
-      description: "Breathtaking views at a mountain resort wedding",
-      image: "/mountain-resort.jpg",
-    },
-  ]
-
-  const videoShowcases = [
-    {
-      id: "XQVJgjnmgdg",
-      title: "Wedding Setup Highlights",
-      thumbnail: "/wedding-venue-arigatoevents.jpg",
-    },
-    {
-      id: "HAMve3fhVvI",
-      title: "Wedding Hall Decoration",
-      thumbnail: "/wedding-decoration-arigatoevents.jpg",
-    },
-    {
-      id: "8A_-ShJRnMg",
-      title: "Garden Celebration Highlights",
-      thumbnail: "/wedding-luxury-setup-arigatoevents.jpg",
-    },
-  ]
-
-  const testimonials = [
-    {
-      quote:
-        "The team captured moments we didn't even know happened. Every time we look at our wedding album, we relive the day all over again.",
-      author: "Priya & Rahul",
-      location: "Mumbai",
-    },
-    {
-      quote:
-        "The cinematic quality of our wedding film exceeded all expectations. It's like watching a movie where we're the stars.",
-      author: "Ananya & Vikram",
-      location: "Delhi",
-    },
-    {
-      quote: "Their drone footage captured our venue in ways we never imagined possible. Truly breathtaking.",
-      author: "Meera & Arjun",
-      location: "Udaipur",
-    },
-  ]
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
 
   const scrollToShowcase = () => {
     showcaseRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",
-    })
-  }
+    });
+  };
 
   const changeVideo = (videoId) => {
-    setActiveVideoId(videoId)
-  }
+    setActiveVideoId(videoId);
+  };
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % testimonials.length)
-  }
+    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
+    setCurrentSlide(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
-      nextSlide()
-    }, 8000)
+      nextSlide();
+    }, 8000);
 
-    return () => clearInterval(timer)
-  }, [])
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div ref={containerRef} className="min-h-screen">
@@ -202,10 +249,13 @@ const WeddingContentCreationPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">Our Cinematic Approach</h2>
+            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">
+              Our Cinematic Approach
+            </h2>
             <p className="text-primary/70 max-w-3xl mx-auto">
-              We blend documentary-style authenticity with cinematic techniques to create wedding films and photos that
-              tell your unique love story.
+              We blend documentary-style authenticity with cinematic techniques
+              to create wedding films and photos that tell your unique love
+              story.
             </p>
           </motion.div>
 
@@ -213,8 +263,13 @@ const WeddingContentCreationPage = () => {
           <div className="mb-12">
             <YouTubePlayer
               videoId={activeVideoId}
-              title={videoShowcases.find((v) => v.id === activeVideoId)?.title || "Wedding Video"}
-              thumbnailUrl={videoShowcases.find((v) => v.id === activeVideoId)?.thumbnail}
+              title={
+                videoShowcases.find((v) => v.id === activeVideoId)?.title ||
+                "Wedding Video"
+              }
+              thumbnailUrl={
+                videoShowcases.find((v) => v.id === activeVideoId)?.thumbnail
+              }
             />
           </div>
 
@@ -231,7 +286,11 @@ const WeddingContentCreationPage = () => {
               >
                 <div
                   className={`relative aspect-video overflow-hidden rounded-lg shadow-md
-                                cursor-pointer group ${activeVideoId === video.id ? "ring-2 ring-primary" : ""}`}
+                                cursor-pointer group ${
+                                  activeVideoId === video.id
+                                    ? "ring-2 ring-primary"
+                                    : ""
+                                }`}
                 >
                   <img
                     src={video.thumbnail || "/placeholder.svg"}
@@ -244,7 +303,9 @@ const WeddingContentCreationPage = () => {
                     </div>
                   </div>
                 </div>
-                <p className="mt-2 text-sm text-primary/80 font-medium">{video.title}</p>
+                <p className="mt-2 text-sm text-primary/80 font-medium">
+                  {video.title}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -261,9 +322,12 @@ const WeddingContentCreationPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">Our Services</h2>
+            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">
+              Our Services
+            </h2>
             <p className="text-primary/70 max-w-3xl mx-auto">
-              Comprehensive content creation services to document your special day from every angle.
+              Comprehensive content creation services to document your special
+              day from every angle.
             </p>
           </motion.div>
 
@@ -271,7 +335,9 @@ const WeddingContentCreationPage = () => {
             <button
               onClick={() => setActiveTab("photography")}
               className={`px-6 py-3 rounded-full transition-colors ${
-                activeTab === "photography" ? "bg-primary text-white" : "bg-white text-primary hover:bg-primary/10"
+                activeTab === "photography"
+                  ? "bg-primary text-white"
+                  : "bg-white text-primary hover:bg-primary/10"
               }`}
             >
               <span className="flex items-center">
@@ -282,7 +348,9 @@ const WeddingContentCreationPage = () => {
             <button
               onClick={() => setActiveTab("videography")}
               className={`px-6 py-3 rounded-full transition-colors ${
-                activeTab === "videography" ? "bg-primary text-white" : "bg-white text-primary hover:bg-primary/10"
+                activeTab === "videography"
+                  ? "bg-primary text-white"
+                  : "bg-white text-primary hover:bg-primary/10"
               }`}
             >
               <span className="flex items-center">
@@ -293,7 +361,9 @@ const WeddingContentCreationPage = () => {
             <button
               onClick={() => setActiveTab("drone")}
               className={`px-6 py-3 rounded-full transition-colors ${
-                activeTab === "drone" ? "bg-primary text-white" : "bg-white text-primary hover:bg-primary/10"
+                activeTab === "drone"
+                  ? "bg-primary text-white"
+                  : "bg-white text-primary hover:bg-primary/10"
               }`}
             >
               <span className="flex items-center">
@@ -314,10 +384,13 @@ const WeddingContentCreationPage = () => {
                 className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
               >
                 <div>
-                  <h3 className="text-2xl font-serif mb-4 text-primary">Timeless Photography</h3>
+                  <h3 className="text-2xl font-serif mb-4 text-primary">
+                    Timeless Photography
+                  </h3>
                   <p className="text-primary/70 mb-6">
-                    Our photographers blend candid moments with artfully composed portraits to create a comprehensive
-                    visual story of your wedding day.
+                    Our photographers blend candid moments with artfully
+                    composed portraits to create a comprehensive visual story of
+                    your wedding day.
                   </p>
                   <ul className="space-y-3 mb-8">
                     {[
@@ -355,10 +428,13 @@ const WeddingContentCreationPage = () => {
                 className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
               >
                 <div>
-                  <h3 className="text-2xl font-serif mb-4 text-primary">Cinematic Videography</h3>
+                  <h3 className="text-2xl font-serif mb-4 text-primary">
+                    Cinematic Videography
+                  </h3>
                   <p className="text-primary/70 mb-6">
-                    Our videographers create cinematic wedding films that capture the emotions, sounds, and movements of
-                    your special day.
+                    Our videographers create cinematic wedding films that
+                    capture the emotions, sounds, and movements of your special
+                    day.
                   </p>
                   <ul className="space-y-3 mb-8">
                     {[
@@ -381,7 +457,7 @@ const WeddingContentCreationPage = () => {
                     <YouTubePlayer
                       videoId="FwQdnFvGX_8"
                       title="Aerial Wedding Coverage - Venue Overview"
-                      thumbnailUrl="/couple-wedding-arigatoevents.jpg"
+                      thumbnailUrl="/thumbnails/arigatoevents-mehendi.jpg"
                     />
                   </div>
                 </div>
@@ -398,10 +474,13 @@ const WeddingContentCreationPage = () => {
                 className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
               >
                 <div>
-                  <h3 className="text-2xl font-serif mb-4 text-primary">Aerial Coverage</h3>
+                  <h3 className="text-2xl font-serif mb-4 text-primary">
+                    Aerial Coverage
+                  </h3>
                   <p className="text-primary/70 mb-6">
-                    Our drone operators capture breathtaking aerial perspectives of your venue and celebration, adding a
-                    cinematic dimension to your wedding content.
+                    Our drone operators capture breathtaking aerial perspectives
+                    of your venue and celebration, adding a cinematic dimension
+                    to your wedding content.
                   </p>
                   <ul className="space-y-3 mb-8">
                     {[
@@ -424,7 +503,7 @@ const WeddingContentCreationPage = () => {
                     <YouTubePlayer
                       videoId="yy_SgISxqgI"
                       title="Aerial Wedding Coverage - Venue Overview"
-                      thumbnailUrl="/wedding-luxury-setup-arigatoevents.jpg"
+                      thumbnailUrl="/thumbnails/arigatoevents-sangeet.jpg"
                     />
                   </div>
                 </div>
@@ -444,7 +523,9 @@ const WeddingContentCreationPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">Portfolio</h2>
+            <h2 className="text-3xl md:text-4xl font-serif mb-4 text-primary">
+              Portfolio
+            </h2>
             <p className="text-primary/70 max-w-3xl mx-auto">
               A glimpse into our recent wedding content creation work.
             </p>
@@ -468,7 +549,9 @@ const WeddingContentCreationPage = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="text-xl font-medium text-white mb-1">{item.title}</h3>
+                    <h3 className="text-xl font-medium text-white mb-1">
+                      {item.title}
+                    </h3>
                     <p className="text-white/80 text-sm">{item.description}</p>
                   </div>
                 </div>
@@ -500,7 +583,9 @@ const WeddingContentCreationPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-serif mb-4">Client Testimonials</h2>
+            <h2 className="text-3xl md:text-4xl font-serif mb-4">
+              Client Testimonials
+            </h2>
             <p className="text-white/80 max-w-3xl mx-auto">
               Hear from couples who trusted us to capture their special day.
             </p>
@@ -519,9 +604,15 @@ const WeddingContentCreationPage = () => {
                 >
                   <div className="mb-8">
                     <Award size={40} className="mx-auto mb-6 text-white/80" />
-                    <p className="text-xl md:text-2xl italic mb-8">"{testimonials[currentSlide].quote}"</p>
-                    <p className="font-medium text-lg">{testimonials[currentSlide].author}</p>
-                    <p className="text-white/80">{testimonials[currentSlide].location}</p>
+                    <p className="text-xl md:text-2xl italic mb-8">
+                      "{testimonials[currentSlide].quote}"
+                    </p>
+                    <p className="font-medium text-lg">
+                      {testimonials[currentSlide].author}
+                    </p>
+                    <p className="text-white/80">
+                      {testimonials[currentSlide].location}
+                    </p>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -533,7 +624,9 @@ const WeddingContentCreationPage = () => {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
-                    currentSlide === index ? "bg-white w-8" : "bg-white/40 hover:bg-white/60"
+                    currentSlide === index
+                      ? "bg-white w-8"
+                      : "bg-white/40 hover:bg-white/60"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -568,16 +661,27 @@ const WeddingContentCreationPage = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-serif mb-6 text-primary">Ready to Capture Your Story?</h2>
+            <h2 className="text-3xl md:text-4xl font-serif mb-6 text-primary">
+              Ready to Capture Your Story?
+            </h2>
             <p className="text-primary/70 mb-8 max-w-2xl mx-auto">
-              Contact us to discuss how our wedding content creation services can document your special day in a way
-              that you'll treasure forever.
+              Contact us to discuss how our wedding content creation services
+              can document your special day in a way that you'll treasure
+              forever.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="default" size="lg" onClick={() => navigate("/contact")}>
+              <Button
+                variant="default"
+                size="lg"
+                onClick={() => navigate("/contact")}
+              >
                 Contact Us
               </Button>
-              <Button variant="outline" size="lg" onClick={() => navigate("/services")}>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => navigate("/services")}
+              >
                 Explore Other Services
               </Button>
             </div>
@@ -585,7 +689,7 @@ const WeddingContentCreationPage = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default WeddingContentCreationPage
+export default WeddingContentCreationPage;

@@ -1,68 +1,68 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react'
-import { cn } from "@/lib/utils"
+import { useState, useEffect, useRef } from "react";
+import { Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const YouTubePlayer = ({ videoId, thumbnailUrl, title }) => {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [currentTime, setCurrentTime] = useState(0)
-  const [duration, setDuration] = useState(0)
-  const [isMuted, setIsMuted] = useState(false)
-  const [showControls, setShowControls] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [isMuted, setIsMuted] = useState(false);
+  const [showControls, setShowControls] = useState(false);
 
-  const playerRef = useRef(null)
-  const containerRef = useRef(null)
-  const progressRef = useRef(null)
-  const hideControlsTimeoutRef = useRef(null)
+  const playerRef = useRef(null);
+  const containerRef = useRef(null);
+  const progressRef = useRef(null);
+  const hideControlsTimeoutRef = useRef(null);
 
   useEffect(() => {
     // Load YouTube API
     if (!window.YT) {
-      const tag = document.createElement("script")
-      tag.src = "https://www.youtube.com/iframe_api"
-      const firstScriptTag = document.getElementsByTagName("script")[0]
-      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag)
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
     }
 
-    window.onYouTubeIframeAPIReady = initializePlayer
+    window.onYouTubeIframeAPIReady = initializePlayer;
 
     if (window.YT && window.YT.Player) {
-      initializePlayer()
+      initializePlayer();
     }
 
     return () => {
-      window.onYouTubeIframeAPIReady = null
+      window.onYouTubeIframeAPIReady = null;
       if (hideControlsTimeoutRef.current) {
-        clearTimeout(hideControlsTimeoutRef.current)
+        clearTimeout(hideControlsTimeoutRef.current);
       }
-    }
-  }, [videoId])
+    };
+  }, [videoId]);
 
   // Update time display
   useEffect(() => {
-    let interval = null
+    let interval = null;
 
     if (isPlaying && playerRef.current) {
       interval = setInterval(() => {
-        const current = playerRef.current.getCurrentTime()
-        setCurrentTime(current)
-      }, 1000)
+        const current = playerRef.current.getCurrentTime();
+        setCurrentTime(current);
+      }, 1000);
     }
 
     return () => {
-      if (interval) clearInterval(interval)
-    }
-  }, [isPlaying])
+      if (interval) clearInterval(interval);
+    };
+  }, [isPlaying]);
 
   const initializePlayer = () => {
     if (window.YT && window.YT.Player) {
       if (playerRef.current) {
-        playerRef.current.destroy()
+        playerRef.current.destroy();
       }
 
-      const playerId = `youtube-player-${videoId}`
+      const playerId = `youtube-player-${videoId}`;
 
       playerRef.current = new window.YT.Player(playerId, {
         videoId: videoId,
@@ -79,100 +79,103 @@ const YouTubePlayer = ({ videoId, thumbnailUrl, title }) => {
           onReady: onPlayerReady,
           onStateChange: onPlayerStateChange,
         },
-      })
+      });
     }
-  }
+  };
 
   const onPlayerReady = (event) => {
-    setIsLoaded(true)
-    setDuration(event.target.getDuration())
-  }
+    setIsLoaded(true);
+    setDuration(event.target.getDuration());
+  };
 
   const onPlayerStateChange = (event) => {
     if (event.data === window.YT.PlayerState.PLAYING) {
-      setIsPlaying(true)
-    } else if (event.data === window.YT.PlayerState.PAUSED || event.data === window.YT.PlayerState.ENDED) {
-      setIsPlaying(false)
+      setIsPlaying(true);
+    } else if (
+      event.data === window.YT.PlayerState.PAUSED ||
+      event.data === window.YT.PlayerState.ENDED
+    ) {
+      setIsPlaying(false);
     }
-  }
+  };
 
   const togglePlay = () => {
-    if (!playerRef.current) return
+    if (!playerRef.current) return;
 
     if (isPlaying) {
-      playerRef.current.pauseVideo()
+      playerRef.current.pauseVideo();
     } else {
-      playerRef.current.playVideo()
+      playerRef.current.playVideo();
     }
-  }
+  };
 
   const toggleMute = () => {
-    if (!playerRef.current) return
+    if (!playerRef.current) return;
 
     if (isMuted) {
-      playerRef.current.unMute()
-      setIsMuted(false)
+      playerRef.current.unMute();
+      setIsMuted(false);
     } else {
-      playerRef.current.mute()
-      setIsMuted(true)
+      playerRef.current.mute();
+      setIsMuted(true);
     }
-  }
+  };
 
   const handleSeek = (e) => {
-    if (!progressRef.current || !playerRef.current || !duration) return
+    if (!progressRef.current || !playerRef.current || !duration) return;
 
-    const rect = progressRef.current.getBoundingClientRect()
-    const position = (e.clientX - rect.left) / rect.width
-    const seekTime = position * duration
+    const rect = progressRef.current.getBoundingClientRect();
+    const position = (e.clientX - rect.left) / rect.width;
+    const seekTime = position * duration;
 
-    playerRef.current.seekTo(seekTime, true)
-    setCurrentTime(seekTime)
-  }
+    playerRef.current.seekTo(seekTime, true);
+    setCurrentTime(seekTime);
+  };
 
   const toggleFullscreen = () => {
-    if (!containerRef.current) return
+    if (!containerRef.current) return;
 
     if (document.fullscreenElement) {
-      document.exitFullscreen()
+      document.exitFullscreen();
     } else {
-      containerRef.current.requestFullscreen()
+      containerRef.current.requestFullscreen();
     }
-  }
+  };
 
   const handleMouseEnter = () => {
     if (isPlaying) {
-      setShowControls(true)
+      setShowControls(true);
       if (hideControlsTimeoutRef.current) {
-        clearTimeout(hideControlsTimeoutRef.current)
+        clearTimeout(hideControlsTimeoutRef.current);
       }
     }
-  }
+  };
 
   const handleMouseLeave = () => {
     if (isPlaying) {
       hideControlsTimeoutRef.current = setTimeout(() => {
-        setShowControls(false)
-      }, 1000)
+        setShowControls(false);
+      }, 1000);
     }
-  }
+  };
 
   const handleMouseMove = () => {
     if (isPlaying) {
-      setShowControls(true)
+      setShowControls(true);
       if (hideControlsTimeoutRef.current) {
-        clearTimeout(hideControlsTimeoutRef.current)
+        clearTimeout(hideControlsTimeoutRef.current);
       }
       hideControlsTimeoutRef.current = setTimeout(() => {
-        setShowControls(false)
-      }, 3000)
+        setShowControls(false);
+      }, 3000);
     }
-  }
+  };
 
   const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60)
-    const secs = Math.floor(seconds % 60)
-    return `${mins}:${secs < 10 ? "0" : ""}${secs}`
-  }
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+  };
 
   return (
     <div
@@ -189,7 +192,10 @@ const YouTubePlayer = ({ videoId, thumbnailUrl, title }) => {
       {!isLoaded && (
         <div className="absolute inset-0 bg-black">
           <img
-            src={thumbnailUrl || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+            src={
+              thumbnailUrl ||
+              `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+            }
             alt={title || "Video thumbnail"}
             className="w-full h-full object-cover"
           />
@@ -222,7 +228,9 @@ const YouTubePlayer = ({ videoId, thumbnailUrl, title }) => {
       <div
         className={cn(
           "absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 transition-all duration-300",
-          showControls && isPlaying ? "opacity-100" : "opacity-0 pointer-events-none",
+          showControls && isPlaying
+            ? "opacity-100"
+            : "opacity-0 pointer-events-none"
         )}
       >
         {/* Progress bar */}
@@ -279,7 +287,7 @@ const YouTubePlayer = ({ videoId, thumbnailUrl, title }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default YouTubePlayer
+export default YouTubePlayer;
