@@ -24,7 +24,7 @@ const Footer = () => {
                 <Instagram size={30} />
               </a>
               <a
-                href="mailto:events@arigatoevents.com"
+                href="mailto:eventsarigato@gmail.com"
                 className="text-primary/70 hover:text-primary transition-colors"
               >
                 <Mail size={30} />
@@ -135,10 +135,10 @@ const Footer = () => {
               <li className="text-sm text-primary/70">+91 93566 66633</li>
               <li>
                 <a
-                  href="mailto:events@arigatoevents.com"
+                  href="mailto:eventsarigato@gmail.com"
                   className="text-sm text-primary/70 hover:text-primary transition-colors"
                 >
-                  events@arigatoevents.com
+                  eventsarigato@gmail.com
                 </a>
               </li>
             </ul>

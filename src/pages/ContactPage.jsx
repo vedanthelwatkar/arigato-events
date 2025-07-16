@@ -19,8 +19,8 @@ const ContactPage = () => {
       title: "Email",
       details: [
         {
-          text: "events@arigatoevents.com",
-          link: "mailto:events@arigatoevents.com",
+          text: "eventsarigato@gmail.com",
+          link: "mailto:eventsarigato@gmail.com",
         },
       ],
     },
@@ -82,7 +82,7 @@ const ContactPage = () => {
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5}}
+                transition={{ duration: 0.5 }}
                 className="text-primary/70 mb-8"
               >
                 Fill out the form below, and one of our luxury concierge

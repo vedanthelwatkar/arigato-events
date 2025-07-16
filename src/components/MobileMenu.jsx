@@ -52,8 +52,8 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
     },
     {
       icon: <Mail size={18} />,
-      label: "events@arigatoevents.com",
-      href: "mailto:events@arigatoevents.com",
+      label: "eventsarigato@gmail.com",
+      href: "mailto:eventsarigato@gmail.com",
     },
     {
       icon: <Instagram size={18} />,
