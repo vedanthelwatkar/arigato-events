@@ -1,3 +1,7 @@
-# updated 11 Jul
-User-agent: *
-Disallow:
+# START ARIGATOEVENTS
+
+user-agent: *
+
+Sitemap: https://arigatoevents.com/sitemap.xml
+
+# END ARIGATOEVENTS
