@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "react-feather";
 import { cn } from "../lib/utils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./Button";
 
 const heroSlidesData = [
@@ -38,6 +38,7 @@ const Carousel = ({
   showDots = true,
   className,
 }) => {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState(0);
@@ -210,15 +211,23 @@ const Carousel = ({
                 {currentSlide.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="default" size="lg" asChild>
-                  <Link to={currentSlide.primaryButton.link}>
-                    {currentSlide.primaryButton.text}
-                  </Link>
+                <Button
+                  className="cursor-pointer"
+                  variant="default"
+                  size="lg"
+                  asChild
+                  onClick={() => navigate(currentSlide.primaryButton.link)}
+                >
+                  {currentSlide.primaryButton.text}
                 </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link to={currentSlide.secondaryButton.link}>
-                    {currentSlide.secondaryButton.text}
-                  </Link>
+                <Button
+                  className="cursor-pointer"
+                  variant="outline"
+                  size="lg"
+                  asChild
+                  onClick={() => navigate(currentSlide.secondaryButton.link)}
+                >
+                  {currentSlide.secondaryButton.text}
                 </Button>
               </div>
             </motion.div>

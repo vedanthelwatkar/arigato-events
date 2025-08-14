@@ -43,6 +43,7 @@ const HomePage = () => {
       description:
         "Premium photography and videography services to capture your most precious moments.",
       icon: <Camera size={24} />,
+      link: "/services/content-creation",
     },
     {
       title: "RSVP Management",
@@ -55,6 +56,7 @@ const HomePage = () => {
       description:
         "Luxury private aviation services for seamless travel experiences.",
       icon: <Globe size={24} />,
+      link: "/services/private-jets",
     },
     {
       title: "Backstage & Showrun",
@@ -145,6 +147,7 @@ const HomePage = () => {
                   icon={service.icon}
                   index={index}
                   homePage={true}
+                  link={service.link || null}
                 />
               ))}
             </ServiceCarousel>

@@ -71,10 +71,10 @@ const portfolioItems = [
   },
   {
     id: 8,
-    title: "Mountain View Dining",
+    title: "Opulent Wedding Stage with Live Band",
     description:
-      "Scenic outdoor reception with mountain backdrop and rustic wooden setup",
-    image: "/portfolio/arigatoevents-8.jpg",
+      "A grand wedding stage setup featuring lavish chandeliers, golden arches, and a live band performance, creating an unforgettable ambience of elegance and celebration.",
+    image: "/wedding-luxury-setup-arigatoevents.jpg",
   },
 ];
 
